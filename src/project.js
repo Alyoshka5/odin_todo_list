@@ -1,4 +1,6 @@
-import { closeProjectForm } from "./domController"
+import { closeProjectForm, addProject } from "./domController"
+
+const projectFormInput = document.querySelector('.project-form input');
 
 const projectFactory = (name, index) => {
     let todos = [];
@@ -6,19 +8,17 @@ const projectFactory = (name, index) => {
     return { name, index }
 }
 
-const projectFormInput = document.querySelector('.project-form input');
-
 let projects = [];
 let projectIndex = 0;
 
-function instanciateProject(e) {
+function createProject(e) {
     e.preventDefault();
     const project = projectFactory(projectFormInput.value, projectIndex);
     projects.push(project);
     projectIndex += 1;
     closeProjectForm();
-    console.log(projects)
+    addProject(project);
 }
 
 export default projects;
-export { instanciateProject }
+export { createProject }

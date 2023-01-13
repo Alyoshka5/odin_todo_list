@@ -1,8 +1,10 @@
-import { openProjectForm } from "./domController";
-import { instanciateProject } from "./project"
+import { openProjectForm, closeProjectForm } from "./domController";
+import { createProject } from "./project"
 
 const newProjectButton = document.querySelector('#new-project-button');
 const projectForm = document.querySelector('.project-form');
+const projectCancelButton = document.querySelector('.project-form .cancel-button');
 
 newProjectButton.addEventListener('click', openProjectForm);
-projectForm.addEventListener('submit', instanciateProject)
+projectForm.addEventListener('submit', createProject);
+projectCancelButton.addEventListener('click', closeProjectForm);
