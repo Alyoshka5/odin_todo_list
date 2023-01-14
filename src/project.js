@@ -1,4 +1,4 @@
-import { closeProjectForm, addProject } from "./domController"
+import { projectDom } from "./domController"
 
 const projectFormInput = document.querySelector('.project-form input');
 
@@ -16,8 +16,8 @@ function createProject(e) {
     const project = projectFactory(projectFormInput.value, projectIndex);
     projects.push(project);
     projectIndex += 1;
-    closeProjectForm();
-    addProject(project);
+    projectDom.closeProjectForm();
+    projectDom.addProject(project);
 }
 
 export default projects;
