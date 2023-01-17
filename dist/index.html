@@ -13,16 +13,48 @@
         <div class="projects"></div>
         <button id="new-project-button">New project</button>
     </div>
-    <div class="workspace"><div class="todos"></div></div>
+
+    <div class="workspace">
+        <div class="todos"></div>
+        <button id="add-todo-button">Add todo</button>
+    </div>
+    
+    <div class="edit-bar hide">
+        <!-- Todo form -->
+        <form class="todo-form hide">
+            <button type="button" class="cancel-todo">X</button>
+
+            <label for="todo-title">Title</label>
+            <input class="todo-title" type="text" name="todo-title" required="true">
+
+            <label for="todo-description">Description</label>
+            <textarea class="todo-description" name="todo-description"></textarea>
+
+            <label for="todo-duedate">Due date</label>
+            <input class="todo-duedate" type="datetime-local" name="todo-duedate">
+
+            <label for="todo-priority">Priority</label>
+            <select class="todo-priority" name="todo-priority">
+                <option value="none">None</option>
+                <option value="urgent">Urgent</option>
+                <option value="high">High</option>
+                <option value="normal">Normal</option>
+                <option value="low">Low</option>
+            </select>
+
+            <input type="submit" value="Create todo">
+        </form>
+    </div>
     
     <!-- Project form -->
     <div class="screen-gate hide"></div>
     <form class="project-form hide">
-        <label for="project-name-input">Project Name</label>
-        <input type="text" name="project-name-input" required="true">
-        <button class="cancel-button">Cancel</button>
+        <button type="button" class="cancel-button">X</button>
+        <label for="project-name">Project Name</label>
+        <input type="text" name="project-name" required="true">
         <input type="submit">
     </form>
+
 
 <script src="main.js"></script>
 </body>

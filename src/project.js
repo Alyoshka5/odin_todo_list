@@ -1,19 +1,18 @@
 import { projectDom } from "./domController";
 import { updateProjectButtons } from "./eventController";
-import todoFactory from "./todo";
-
-const projectFormInput = document.querySelector('.project-form input');
+import { todoFactory, createTodo } from "./todo";
 
 const projectFactory = (name, index) => {
     let todos = [];
-    todos.push(todoFactory("a", "b", "c", "d"));
-    todos.push(todoFactory("e", "f", "g", "h"));
-
+    
     return { name, index, todos }
 }
 
+const projectFormInput = document.querySelector('.project-form input');
+
 let projects = [];
 let projectIndex = 0;
+let currentProject;
 
 function createProject(e) {
     e.preventDefault();
@@ -27,7 +26,12 @@ function createProject(e) {
 
 function findProject(projectButton) {
     let index = projectButton.getAttribute('data-project-index');
-    return projects.find(project => project.index == index);
+    currentProject =  projects.find(project => project.index == index);
+    return currentProject;
 }
 
-export { createProject, findProject }
+function addProjectTodo(newTodo) {
+    currentProject.todos.push(newTodo);
+}
+
+export { createProject, findProject, addProjectTodo }

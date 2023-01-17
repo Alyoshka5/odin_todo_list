@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 260px 1fr 340px;
 }
 
 .side-bar {
@@ -41,4 +41,19 @@ h1 {
     width: 100%;
     height: 100%;
     background-color: #9c9c9c3e;
+}
+
+/* TODOS */
+.todos div {
+    border: 2px solid black;
+}
+
+.simplepicker-wrapper {
+    border: 2px solid black
+}
+
+/* EDIT BAR */
+.edit-bar {
+    background-color: #fff;
+    box-shadow: -5px 0 5px #e0e0e0;
 }
