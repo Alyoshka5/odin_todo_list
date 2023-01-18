@@ -15,4 +15,11 @@ function createTodo(e) {
     todoDom.closeTodoForm();
 }
 
-export { todoFactory, createTodo };
+function addDefaultTodo() {
+    let today = new Date().toLocaleDateString();
+    let todo = todoFactory("My first todo", "This is a todo", today, 'normal');
+    addProjectTodo(todo);
+    projectDom.displayNewTodo(todo);
+}
+
+export { createTodo, addDefaultTodo };

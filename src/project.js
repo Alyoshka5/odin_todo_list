@@ -1,6 +1,6 @@
 import { projectDom } from "./domController";
 import { updateProjectButtons } from "./eventController";
-import { todoFactory, createTodo } from "./todo";
+import { addDefaultTodo } from "./todo";
 
 const projectFactory = (name, index) => {
     let todos = [];
@@ -16,12 +16,22 @@ let currentProject;
 
 function createProject(e) {
     e.preventDefault();
-    const project = projectFactory(projectFormInput.value, projectIndex);
+    let project = projectFactory(projectFormInput.value, projectIndex);
     projects.push(project);
     projectIndex += 1;
     projectDom.closeProjectForm();
     projectDom.addProject(project);
     updateProjectButtons();
+}
+
+function createDefaultProject() {
+    let project = projectFactory("Welcome", projectIndex);
+    projects.push(project);
+    projectIndex += 1;
+    currentProject = project;
+    projectDom.addProject(project);
+    updateProjectButtons();
+    addDefaultTodo();
 }
 
 function findProject(projectButton) {
@@ -33,5 +43,7 @@ function findProject(projectButton) {
 function addProjectTodo(newTodo) {
     currentProject.todos.push(newTodo);
 }
+
+window.onload = createDefaultProject;
 
 export { createProject, findProject, addProjectTodo }
