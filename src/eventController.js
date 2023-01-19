@@ -13,14 +13,14 @@ const todoForm = document.querySelector('.todo-form');
 newProjectButton.addEventListener('click', projectDom.openProjectForm);
 projectForm.addEventListener('submit', createProject);
 projectCancelButton.addEventListener('click', projectDom.closeProjectForm);
-projectButtons.forEach(projectButton => projectButton.addEventListener('click', projectDom.loadProject));
+projectButtons.forEach(projectButton => projectButton.addEventListener('click', projectDom.displayProject));
 newTodoButton.addEventListener('click', todoDom.toggleTodoForm);
 cancelTodoButton.addEventListener('click', todoDom.closeTodoForm);
 todoForm.addEventListener('submit', createTodo);
 
 function updateProjectButtons() {
     projectButtons = document.querySelectorAll('.project-button');
-    projectButtons.forEach(projectButton => projectButton.addEventListener('click', projectDom.loadProject));
+    projectButtons.forEach(projectButton => projectButton.addEventListener('click', projectDom.displayProject));
 }
 
 export { updateProjectButtons }

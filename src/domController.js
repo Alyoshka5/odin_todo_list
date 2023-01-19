@@ -35,29 +35,19 @@ const projectDom = (() => {
         projectsDiv.innerHTML += `<button data-project-index="${project.index}" class="project-button">${project.name}</button>`;
     }
 
-    function loadProject() {
+    function displayProject() {
         let project = findProject(this);
-        todosDiv.innerHTML = '';
-        project.todos.forEach(todo => {
-            todosDiv.innerHTML += `
-                <div>
-                    <p>${todo.title}</p>
-                    <p>${todo.dueDate}</p>
-                </div>
-            `;
-        });
+        loadProject(project);
     }
 
-    function displayNewTodo(todo) {
-        todosDiv.innerHTML += `
-            <div>
-                <p>${todo.title}</p>
-                <p>${todo.dueDate}</p>
-            </div>
-        `
+    function loadProject(project) {
+        todosDiv.innerHTML = '';
+        project.todos.forEach(todo => {
+            displayTodo(todo);
+        });
     }
     
-    return { openProjectForm, closeProjectForm, addProject, loadProject, displayNewTodo } 
+    return { openProjectForm, closeProjectForm, addProject, displayProject, loadProject } 
 })();
 
 const todoDom = (() => {
@@ -89,7 +79,6 @@ const todoDom = (() => {
         clearFormValues();
     }
 
-
     function getFormValues() {
         let title = todoFormTitle.value;
         let description = todoFormDescription.value;
@@ -99,7 +88,16 @@ const todoDom = (() => {
         return [title, description, duedate, priority];
     }
 
-    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues }
+    function displayTodo(todo) {
+        todosDiv.innerHTML += `
+            <div class="todo" data-todo-index=${todo.index}">
+                <p>${todo.title}</p>
+                <p>${todo.dueDate}</p>
+            </div>
+        `
+    }
+
+    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo }
 })();
 
 export { projectDom, todoDom } 

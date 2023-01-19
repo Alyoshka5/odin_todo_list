@@ -4,8 +4,13 @@ import { addDefaultTodo } from "./todo";
 
 const projectFactory = (name, index) => {
     let todos = [];
+    let todoIndex = 0;
+
+    function addTodo(newTodo) {
+        todos.push(newTodo);
+    }
     
-    return { name, index, todos }
+    return { name, index, todos, todoIndex, addTodo }
 }
 
 const projectFormInput = document.querySelector('.project-form input');
@@ -19,8 +24,10 @@ function createProject(e) {
     let project = projectFactory(projectFormInput.value, projectIndex);
     projects.push(project);
     projectIndex += 1;
+    currentProject = project;
     projectDom.closeProjectForm();
     projectDom.addProject(project);
+    projectDom.loadProject(project);
     updateProjectButtons();
 }
 
@@ -40,10 +47,6 @@ function findProject(projectButton) {
     return currentProject;
 }
 
-function addProjectTodo(newTodo) {
-    currentProject.todos.push(newTodo);
-}
-
 window.onload = createDefaultProject;
 
-export { createProject, findProject, addProjectTodo }
+export { createProject, findProject, currentProject }
