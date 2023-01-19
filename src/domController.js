@@ -1,4 +1,5 @@
-import { findProject } from "./project";
+import { currentProject, findProject, resetCurrentProject } from "./project";
+import { updateProjectButtons } from "./eventController";
 
 // project form
 const projectForm = document.querySelector('.project-form');
@@ -32,7 +33,12 @@ const projectDom = (() => {
     
     // Project display
     function addProject(project) {
-        projectsDiv.innerHTML += `<button data-project-index="${project.index}" class="project-button">${project.name}</button>`;
+        projectsDiv.innerHTML += `
+        <div class="project-div" data-project-index="${project.index}">
+            <button class="project-button">${project.name}</button>
+            <button class="delete-project">🗑️</button>
+        </div>
+        `;
     }
 
     function displayProject() {
@@ -41,13 +47,21 @@ const projectDom = (() => {
     }
 
     function loadProject(project) {
+        addTodoButton.classList.remove('hide');
         todosDiv.innerHTML = '';
         project.todos.forEach(todo => {
-            displayTodo(todo);
+            todoDom.displayTodo(todo);
         });
     }
+
+    function removeProject(project) {
+        let projectDiv = document.querySelector(`[data-project-index="${project.index}"]`);
+        projectsDiv.removeChild(projectDiv);
+        resetCurrentProject();
+        updateProjectButtons();
+    }
     
-    return { openProjectForm, closeProjectForm, addProject, displayProject, loadProject } 
+    return { openProjectForm, closeProjectForm, addProject, displayProject, loadProject, removeProject } 
 })();
 
 const todoDom = (() => {
@@ -94,10 +108,15 @@ const todoDom = (() => {
                 <p>${todo.title}</p>
                 <p>${todo.dueDate}</p>
             </div>
-        `
+        `;
     }
 
-    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo }
+    function clearTodos() {
+        todosDiv.innerHTML = 'You have no projects';
+        addTodoButton.classList.add('hide');
+    }
+
+    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos }
 })();
 
 export { projectDom, todoDom } 

@@ -1,4 +1,4 @@
-import { projectDom } from "./domController";
+import { projectDom, todoDom } from "./domController";
 import { updateProjectButtons } from "./eventController";
 import { addDefaultTodo } from "./todo";
 
@@ -42,11 +42,26 @@ function createDefaultProject() {
 }
 
 function findProject(projectButton) {
-    let index = projectButton.getAttribute('data-project-index');
-    currentProject =  projects.find(project => project.index == index);
+    let index = projectButton.parentNode.getAttribute('data-project-index');
+    currentProject = projects.find(project => project.index == index);
     return currentProject;
+}
+
+function deleteProject() {
+    let project = findProject(this);
+    projects = projects.filter(p => p.index != project.index);
+    projectDom.removeProject(project);
+}
+
+function resetCurrentProject() {
+    if (projects.length > 0) {
+        currentProject = projects[0];
+        projectDom.loadProject(currentProject);
+    } else {
+        todoDom.clearTodos();
+    }
 }
 
 window.onload = createDefaultProject;
 
-export { createProject, findProject, currentProject }
+export { currentProject, createProject, findProject, deleteProject, resetCurrentProject }
