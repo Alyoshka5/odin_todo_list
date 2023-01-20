@@ -48,8 +48,12 @@ h1 {
     border: 2px solid black;
 }
 
-.simplepicker-wrapper {
-    border: 2px solid black
+.completed-todo p {
+    opacity: 0.6;
+}
+
+.completed-todo .todo-title {
+    text-decoration: line-through;
 }
 
 /* EDIT BAR */

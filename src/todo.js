@@ -1,9 +1,11 @@
 import todoDom from './todoDomController';
 import { currentProject } from "./project";
+import { updateTodoButtons } from './eventController';
 
 const todoFactory = (title, description, dueDate, priority, index) => {
-    
-    return { title, description, dueDate, priority, index }
+    let completed = false;
+
+    return { title, description, dueDate, priority, index, completed }
 }
 
 function createTodo(e) {
@@ -14,6 +16,7 @@ function createTodo(e) {
     let newTodo =  todoFactory(title, description, duedate, priority, index);
     currentProject.addTodo(newTodo);
     todoDom.displayTodo(newTodo);
+    updateTodoButtons();
     todoDom.closeTodoForm();
 }
 
@@ -24,6 +27,13 @@ function addDefaultTodo() {
     let todo = todoFactory("My first todo", "This is a todo", today, 'normal', index);
     currentProject.addTodo(todo);
     todoDom.displayTodo(todo);
+    updateTodoButtons();
 }
 
-export { createTodo, addDefaultTodo };
+function findTodo(todoButton) {
+    let index = todoButton.parentNode.getAttribute('data-todo-index');
+    let todo = currentProject.todos.find(todo => todo.index == index);
+    return todo;
+}
+
+export { createTodo, addDefaultTodo, findTodo };

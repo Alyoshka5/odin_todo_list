@@ -1,3 +1,4 @@
+import { findTodo } from "./todo";
 
 const todosDiv = document.querySelector('.todos');
 const editBar = document.querySelector('.edit-bar');
@@ -47,9 +48,12 @@ const todoDom = (() => {
     }
 
     function displayTodo(todo) {
+        let completedClass = todo.completed ? 'completed-todo' : '';
+        let precheckCheckbox = todo.completed ? 'checked' : '';
         todosDiv.innerHTML += `
-            <div class="todo" data-todo-index=${todo.index}">
-                <p>${todo.title}</p>
+            <div class="todo ${completedClass}" data-todo-index="${todo.index}">
+                <input type="checkbox" class="todo-checkbox" ${precheckCheckbox}>
+                <p class="todo-title">${todo.title}</p>
                 <p>${todo.dueDate}</p>
             </div>
         `;
@@ -60,7 +64,13 @@ const todoDom = (() => {
         addTodoButton.classList.add('hide');
     }
 
-    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos }
+    function toggleTodoCompletion() {
+        let todo = findTodo(this);
+        this.parentNode.classList.toggle('completed-todo');
+        todo.completed = !todo.completed;
+    }
+
+    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos, toggleTodoCompletion }
 })();
 
 export default todoDom;

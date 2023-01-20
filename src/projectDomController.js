@@ -1,5 +1,5 @@
 import todoDom from "./todoDomController";
-import { updateProjectButtons } from "./eventController";
+import { updateProjectButtons, updateTodoButtons } from "./eventController";
 import { findProject, resetCurrentProject } from "./project";
 
 
@@ -44,6 +44,7 @@ const projectDom = (() => {
         project.todos.forEach(todo => {
             todoDom.displayTodo(todo);
         });
+        updateTodoButtons();
     }
 
     function removeProject(project) {
