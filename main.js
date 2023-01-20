@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 260px 1fr 340px;\n}\n\n.side-bar {\n    background-color: #e6e6e6;\n}\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n}\n\nh1 {\n    margin: 0;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    height: 100px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.hide { display: none; }\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n/* TODOS */\n.todos div {\n    border: 2px solid black;\n}\n\n.simplepicker-wrapper {\n    border: 2px solid black\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    box-shadow: -5px 0 5px #e0e0e0;\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AACA,0CAA0C;;AAE1C;IACI,aAAa;IACb,YAAY;IACZ,SAAS;IACT,oCAAoC;IACpC,aAAa;IACb,sCAAsC;AAC1C;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;IACtB,YAAY;IACZ,wBAAwB;AAC5B;;AAEA;IACI,SAAS;AACb;;;AAGA,iBAAiB;AACjB;IACI,sBAAsB;IACtB,aAAa;IACb,kBAAkB;IAClB,oBAAoB;IACpB,kBAAkB;AACtB;;AAEA,QAAQ,aAAa,EAAE;;AAEvB;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,2BAA2B;AAC/B;;AAEA,UAAU;AACV;IACI,uBAAuB;AAC3B;;AAEA;IACI;AACJ;;AAEA,aAAa;AACb;IACI,sBAAsB;IACtB,8BAA8B;AAClC","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap');\n/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 260px 1fr 340px;\n}\n\n.side-bar {\n    background-color: #e6e6e6;\n}\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n}\n\nh1 {\n    margin: 0;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    height: 100px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.hide { display: none; }\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n/* TODOS */\n.todos div {\n    border: 2px solid black;\n}\n\n.simplepicker-wrapper {\n    border: 2px solid black\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    box-shadow: -5px 0 5px #e0e0e0;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 260px 1fr 340px;\n}\n\n.side-bar {\n    background-color: #e6e6e6;\n}\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n}\n\nh1 {\n    margin: 0;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    height: 100px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.hide { display: none; }\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n/* TODOS */\n.todos div {\n    border: 2px solid black;\n}\n\n.completed-todo p {\n    opacity: 0.6;\n}\n\n.completed-todo .todo-title {\n    text-decoration: line-through;\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    box-shadow: -5px 0 5px #e0e0e0;\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AACA,0CAA0C;;AAE1C;IACI,aAAa;IACb,YAAY;IACZ,SAAS;IACT,oCAAoC;IACpC,aAAa;IACb,sCAAsC;AAC1C;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;IACtB,YAAY;IACZ,wBAAwB;AAC5B;;AAEA;IACI,SAAS;AACb;;;AAGA,iBAAiB;AACjB;IACI,sBAAsB;IACtB,aAAa;IACb,kBAAkB;IAClB,oBAAoB;IACpB,kBAAkB;AACtB;;AAEA,QAAQ,aAAa,EAAE;;AAEvB;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,2BAA2B;AAC/B;;AAEA,UAAU;AACV;IACI,uBAAuB;AAC3B;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,6BAA6B;AACjC;;AAEA,aAAa;AACb;IACI,sBAAsB;IACtB,8BAA8B;AAClC","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap');\n/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 260px 1fr 340px;\n}\n\n.side-bar {\n    background-color: #e6e6e6;\n}\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n}\n\nh1 {\n    margin: 0;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    height: 100px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.hide { display: none; }\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n/* TODOS */\n.todos div {\n    border: 2px solid black;\n}\n\n.completed-todo p {\n    opacity: 0.6;\n}\n\n.completed-todo .todo-title {\n    text-decoration: line-through;\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    box-shadow: -5px 0 5px #e0e0e0;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -516,7 +516,8 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "updateProjectButtons": () => (/* binding */ updateProjectButtons)
+/* harmony export */   "updateProjectButtons": () => (/* binding */ updateProjectButtons),
+/* harmony export */   "updateTodoButtons": () => (/* binding */ updateTodoButtons)
 /* harmony export */ });
 /* harmony import */ var _projectDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectDomController */ "./src/projectDomController.js");
 /* harmony import */ var _todoDomController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todoDomController */ "./src/todoDomController.js");
@@ -535,6 +536,7 @@ let deleteProjectButtons = document.querySelectorAll('button.delete-project');
 const addTodoButton = document.querySelector('#add-todo-button');
 const cancelTodoButton = document.querySelector('button.cancel-todo');
 const todoForm = document.querySelector('.todo-form');
+const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
 
 newProjectButton.addEventListener('click', _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].openProjectForm);
 projectForm.addEventListener('submit', _project__WEBPACK_IMPORTED_MODULE_2__.createProject);
@@ -544,12 +546,18 @@ deleteProjectButtons.forEach(projectButton => projectButton.addEventListener('cl
 addTodoButton.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].toggleTodoForm);
 cancelTodoButton.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].closeTodoForm);
 todoForm.addEventListener('submit', _todo__WEBPACK_IMPORTED_MODULE_3__.createTodo);
+todoCheckboxes.forEach(checkbox => checkbox.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].toggleTodoCompletion));
 
 function updateProjectButtons() {
     projectButtons = document.querySelectorAll('.project-button');
     deleteProjectButtons = document.querySelectorAll('button.delete-project');
     projectButtons.forEach(projectButton => projectButton.addEventListener('click', _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayProject));
     deleteProjectButtons.forEach(projectButton => projectButton.addEventListener('click', _project__WEBPACK_IMPORTED_MODULE_2__.deleteProject));
+}
+
+function updateTodoButtons() {
+    const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
+    todoCheckboxes.forEach(checkbox => checkbox.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].toggleTodoCompletion));
 }
 
 
@@ -704,6 +712,7 @@ const projectDom = (() => {
         project.todos.forEach(todo => {
             _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayTodo(todo);
         });
+        (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateTodoButtons)();
     }
 
     function removeProject(project) {
@@ -729,16 +738,20 @@ const projectDom = (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "addDefaultTodo": () => (/* binding */ addDefaultTodo),
-/* harmony export */   "createTodo": () => (/* binding */ createTodo)
+/* harmony export */   "createTodo": () => (/* binding */ createTodo),
+/* harmony export */   "findTodo": () => (/* binding */ findTodo)
 /* harmony export */ });
 /* harmony import */ var _todoDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoDomController */ "./src/todoDomController.js");
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project */ "./src/project.js");
+/* harmony import */ var _eventController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./eventController */ "./src/eventController.js");
+
 
 
 
 const todoFactory = (title, description, dueDate, priority, index) => {
-    
-    return { title, description, dueDate, priority, index }
+    let completed = false;
+
+    return { title, description, dueDate, priority, index, completed }
 }
 
 function createTodo(e) {
@@ -749,6 +762,7 @@ function createTodo(e) {
     let newTodo =  todoFactory(title, description, duedate, priority, index);
     _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.addTodo(newTodo);
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayTodo(newTodo);
+    (0,_eventController__WEBPACK_IMPORTED_MODULE_2__.updateTodoButtons)();
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].closeTodoForm();
 }
 
@@ -759,6 +773,13 @@ function addDefaultTodo() {
     let todo = todoFactory("My first todo", "This is a todo", today, 'normal', index);
     _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.addTodo(todo);
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayTodo(todo);
+    (0,_eventController__WEBPACK_IMPORTED_MODULE_2__.updateTodoButtons)();
+}
+
+function findTodo(todoButton) {
+    let index = todoButton.parentNode.getAttribute('data-todo-index');
+    let todo = _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todos.find(todo => todo.index == index);
+    return todo;
 }
 
 
@@ -775,6 +796,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo */ "./src/todo.js");
+
 
 const todosDiv = document.querySelector('.todos');
 const editBar = document.querySelector('.edit-bar');
@@ -824,9 +847,12 @@ const todoDom = (() => {
     }
 
     function displayTodo(todo) {
+        let completedClass = todo.completed ? 'completed-todo' : '';
+        let precheckCheckbox = todo.completed ? 'checked' : '';
         todosDiv.innerHTML += `
-            <div class="todo" data-todo-index=${todo.index}">
-                <p>${todo.title}</p>
+            <div class="todo ${completedClass}" data-todo-index="${todo.index}">
+                <input type="checkbox" class="todo-checkbox" ${precheckCheckbox}>
+                <p class="todo-title">${todo.title}</p>
                 <p>${todo.dueDate}</p>
             </div>
         `;
@@ -837,7 +863,13 @@ const todoDom = (() => {
         addTodoButton.classList.add('hide');
     }
 
-    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos }
+    function toggleTodoCompletion() {
+        let todo = (0,_todo__WEBPACK_IMPORTED_MODULE_0__.findTodo)(this);
+        this.parentNode.classList.toggle('completed-todo');
+        todo.completed = !todo.completed;
+    }
+
+    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos, toggleTodoCompletion }
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (todoDom);
