@@ -508,38 +508,167 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/domController.js":
-/*!******************************!*\
-  !*** ./src/domController.js ***!
-  \******************************/
+/***/ "./src/eventController.js":
+/*!********************************!*\
+  !*** ./src/eventController.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "projectDom": () => (/* binding */ projectDom),
-/* harmony export */   "todoDom": () => (/* binding */ todoDom)
+/* harmony export */   "updateProjectButtons": () => (/* binding */ updateProjectButtons)
 /* harmony export */ });
-/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/project.js");
+/* harmony import */ var _projectDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectDomController */ "./src/projectDomController.js");
+/* harmony import */ var _todoDomController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todoDomController */ "./src/todoDomController.js");
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project */ "./src/project.js");
+/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo */ "./src/todo.js");
+
+
+
+
+
+const newProjectButton = document.querySelector('#new-project-button');
+const projectForm = document.querySelector('.project-form');
+const projectCancelButton = document.querySelector('.project-form .cancel-button');
+let projectButtons = document.querySelectorAll('.project-button');
+let deleteProjectButtons = document.querySelectorAll('button.delete-project');
+const addTodoButton = document.querySelector('#add-todo-button');
+const cancelTodoButton = document.querySelector('button.cancel-todo');
+const todoForm = document.querySelector('.todo-form');
+
+newProjectButton.addEventListener('click', _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].openProjectForm);
+projectForm.addEventListener('submit', _project__WEBPACK_IMPORTED_MODULE_2__.createProject);
+projectCancelButton.addEventListener('click', _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].closeProjectForm);
+projectButtons.forEach(projectButton => projectButton.addEventListener('click', _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayProject));
+deleteProjectButtons.forEach(projectButton => projectButton.addEventListener('click', _project__WEBPACK_IMPORTED_MODULE_2__.deleteProject));
+addTodoButton.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].toggleTodoForm);
+cancelTodoButton.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].closeTodoForm);
+todoForm.addEventListener('submit', _todo__WEBPACK_IMPORTED_MODULE_3__.createTodo);
+
+function updateProjectButtons() {
+    projectButtons = document.querySelectorAll('.project-button');
+    deleteProjectButtons = document.querySelectorAll('button.delete-project');
+    projectButtons.forEach(projectButton => projectButton.addEventListener('click', _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayProject));
+    deleteProjectButtons.forEach(projectButton => projectButton.addEventListener('click', _project__WEBPACK_IMPORTED_MODULE_2__.deleteProject));
+}
+
+
+
+/***/ }),
+
+/***/ "./src/project.js":
+/*!************************!*\
+  !*** ./src/project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createProject": () => (/* binding */ createProject),
+/* harmony export */   "currentProject": () => (/* binding */ currentProject),
+/* harmony export */   "deleteProject": () => (/* binding */ deleteProject),
+/* harmony export */   "findProject": () => (/* binding */ findProject),
+/* harmony export */   "resetCurrentProject": () => (/* binding */ resetCurrentProject)
+/* harmony export */ });
+/* harmony import */ var _projectDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectDomController */ "./src/projectDomController.js");
+/* harmony import */ var _todoDomController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todoDomController */ "./src/todoDomController.js");
+/* harmony import */ var _eventController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./eventController */ "./src/eventController.js");
+/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo */ "./src/todo.js");
+
+
+
+
+
+const projectFactory = (name, index) => {
+    let todos = [];
+    let todoIndex = 0;
+
+    function addTodo(newTodo) {
+        todos.push(newTodo);
+    }
+    
+    return { name, index, todos, todoIndex, addTodo }
+}
+
+const projectFormInput = document.querySelector('.project-form input');
+
+let projects = [];
+let projectIndex = 0;
+let currentProject;
+
+function createProject(e) {
+    e.preventDefault();
+    let project = projectFactory(projectFormInput.value, projectIndex);
+    projects.push(project);
+    projectIndex += 1;
+    currentProject = project;
+    _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].closeProjectForm();
+    _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].addProject(project);
+    _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].loadProject(project);
+    (0,_eventController__WEBPACK_IMPORTED_MODULE_2__.updateProjectButtons)();
+}
+
+function createDefaultProject() {
+    let project = projectFactory("Welcome", projectIndex);
+    projects.push(project);
+    projectIndex += 1;
+    currentProject = project;
+    _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].addProject(project);
+    (0,_eventController__WEBPACK_IMPORTED_MODULE_2__.updateProjectButtons)();
+    (0,_todo__WEBPACK_IMPORTED_MODULE_3__.addDefaultTodo)();
+}
+
+function findProject(projectButton) {
+    let index = projectButton.parentNode.getAttribute('data-project-index');
+    currentProject = projects.find(project => project.index == index);
+    return currentProject;
+}
+
+function deleteProject() {
+    let project = findProject(this);
+    projects = projects.filter(p => p.index != project.index);
+    _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].removeProject(project);
+}
+
+function resetCurrentProject() {
+    if (projects.length > 0) {
+        currentProject = projects[0];
+        _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].loadProject(currentProject);
+    } else {
+        _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].clearTodos();
+    }
+}
+
+window.onload = createDefaultProject;
+
+
+
+/***/ }),
+
+/***/ "./src/projectDomController.js":
+/*!*************************************!*\
+  !*** ./src/projectDomController.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _todoDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoDomController */ "./src/todoDomController.js");
 /* harmony import */ var _eventController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventController */ "./src/eventController.js");
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project */ "./src/project.js");
 
 
 
-// project form
+
+
+const todosDiv = document.querySelector('.todos');
+const addTodoButton = document.querySelector('#add-todo-button');
 const projectForm = document.querySelector('.project-form');
 const projectFormInput = document.querySelector('.project-form input');
 const projectsDiv = document.querySelector('.projects');
 const screenGate = document.querySelector('.screen-gate');
-
-const todosDiv = document.querySelector('.todos');
-const editBar = document.querySelector('.edit-bar');
-// todo form
-const addTodoButton = document.querySelector('#add-todo-button');
-const todoForm = document.querySelector('.todo-form');
-const todoFormTitle = document.querySelector('.todo-form .todo-title');
-const todoFormDescription = document.querySelector('.todo-form .todo-description');
-const todoFormDuedate = document.querySelector('.todo-form .todo-duedate');
-const todoFormPriority = document.querySelector('.todo-form .todo-priority');
-
 
 const projectDom = (() => {
     // Project form
@@ -565,7 +694,7 @@ const projectDom = (() => {
     }
 
     function displayProject() {
-        let project = (0,_project__WEBPACK_IMPORTED_MODULE_0__.findProject)(this);
+        let project = (0,_project__WEBPACK_IMPORTED_MODULE_2__.findProject)(this);
         loadProject(project);
     }
 
@@ -573,19 +702,88 @@ const projectDom = (() => {
         addTodoButton.classList.remove('hide');
         todosDiv.innerHTML = '';
         project.todos.forEach(todo => {
-            todoDom.displayTodo(todo);
+            _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayTodo(todo);
         });
     }
 
     function removeProject(project) {
         let projectDiv = document.querySelector(`[data-project-index="${project.index}"]`);
         projectsDiv.removeChild(projectDiv);
-        (0,_project__WEBPACK_IMPORTED_MODULE_0__.resetCurrentProject)();
+        (0,_project__WEBPACK_IMPORTED_MODULE_2__.resetCurrentProject)();
         (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateProjectButtons)();
     }
     
     return { openProjectForm, closeProjectForm, addProject, displayProject, loadProject, removeProject } 
 })();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectDom);
+
+/***/ }),
+
+/***/ "./src/todo.js":
+/*!*********************!*\
+  !*** ./src/todo.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addDefaultTodo": () => (/* binding */ addDefaultTodo),
+/* harmony export */   "createTodo": () => (/* binding */ createTodo)
+/* harmony export */ });
+/* harmony import */ var _todoDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoDomController */ "./src/todoDomController.js");
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project */ "./src/project.js");
+
+
+
+const todoFactory = (title, description, dueDate, priority, index) => {
+    
+    return { title, description, dueDate, priority, index }
+}
+
+function createTodo(e) {
+    e.preventDefault();
+    let [title, description, duedate, priority] = _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].getFormValues();
+    let index = _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex;
+    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex += 1;
+    let newTodo =  todoFactory(title, description, duedate, priority, index);
+    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.addTodo(newTodo);
+    _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayTodo(newTodo);
+    _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].closeTodoForm();
+}
+
+function addDefaultTodo() {
+    let today = new Date().toLocaleDateString();
+    let index = _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex;
+    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex += 1;
+    let todo = todoFactory("My first todo", "This is a todo", today, 'normal', index);
+    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.addTodo(todo);
+    _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayTodo(todo);
+}
+
+
+
+/***/ }),
+
+/***/ "./src/todoDomController.js":
+/*!**********************************!*\
+  !*** ./src/todoDomController.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+
+const todosDiv = document.querySelector('.todos');
+const editBar = document.querySelector('.edit-bar');
+const addTodoButton = document.querySelector('#add-todo-button');
+const todoForm = document.querySelector('.todo-form');
+const todoFormTitle = document.querySelector('.todo-form .todo-title');
+const todoFormDescription = document.querySelector('.todo-form .todo-description');
+const todoFormDuedate = document.querySelector('.todo-form .todo-duedate');
+const todoFormPriority = document.querySelector('.todo-form .todo-priority');
 
 const todoDom = (() => {
     // Add todo button
@@ -642,186 +840,7 @@ const todoDom = (() => {
     return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos }
 })();
 
- 
-
-/***/ }),
-
-/***/ "./src/eventController.js":
-/*!********************************!*\
-  !*** ./src/eventController.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "updateProjectButtons": () => (/* binding */ updateProjectButtons)
-/* harmony export */ });
-/* harmony import */ var _domController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./domController */ "./src/domController.js");
-/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project */ "./src/project.js");
-/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo */ "./src/todo.js");
-
-
-
-
-
-const newProjectButton = document.querySelector('#new-project-button');
-const projectForm = document.querySelector('.project-form');
-const projectCancelButton = document.querySelector('.project-form .cancel-button');
-let projectButtons = document.querySelectorAll('.project-button');
-let deleteProjectButtons = document.querySelectorAll('button.delete-project');
-const addTodoButton = document.querySelector('#add-todo-button');
-const cancelTodoButton = document.querySelector('button.cancel-todo');
-const todoForm = document.querySelector('.todo-form');
-
-newProjectButton.addEventListener('click', _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.openProjectForm);
-projectForm.addEventListener('submit', _project__WEBPACK_IMPORTED_MODULE_1__.createProject);
-projectCancelButton.addEventListener('click', _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.closeProjectForm);
-projectButtons.forEach(projectButton => projectButton.addEventListener('click', _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.displayProject));
-deleteProjectButtons.forEach(projectButton => projectButton.addEventListener('click', _project__WEBPACK_IMPORTED_MODULE_1__.deleteProject));
-addTodoButton.addEventListener('click', _domController__WEBPACK_IMPORTED_MODULE_0__.todoDom.toggleTodoForm);
-cancelTodoButton.addEventListener('click', _domController__WEBPACK_IMPORTED_MODULE_0__.todoDom.closeTodoForm);
-todoForm.addEventListener('submit', _todo__WEBPACK_IMPORTED_MODULE_2__.createTodo);
-
-function updateProjectButtons() {
-    projectButtons = document.querySelectorAll('.project-button');
-    deleteProjectButtons = document.querySelectorAll('button.delete-project');
-    projectButtons.forEach(projectButton => projectButton.addEventListener('click', _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.displayProject));
-    deleteProjectButtons.forEach(projectButton => projectButton.addEventListener('click', _project__WEBPACK_IMPORTED_MODULE_1__.deleteProject));
-}
-
-
-
-/***/ }),
-
-/***/ "./src/project.js":
-/*!************************!*\
-  !*** ./src/project.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createProject": () => (/* binding */ createProject),
-/* harmony export */   "currentProject": () => (/* binding */ currentProject),
-/* harmony export */   "deleteProject": () => (/* binding */ deleteProject),
-/* harmony export */   "findProject": () => (/* binding */ findProject),
-/* harmony export */   "resetCurrentProject": () => (/* binding */ resetCurrentProject)
-/* harmony export */ });
-/* harmony import */ var _domController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./domController */ "./src/domController.js");
-/* harmony import */ var _eventController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventController */ "./src/eventController.js");
-/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo */ "./src/todo.js");
-
-
-
-
-const projectFactory = (name, index) => {
-    let todos = [];
-    let todoIndex = 0;
-
-    function addTodo(newTodo) {
-        todos.push(newTodo);
-    }
-    
-    return { name, index, todos, todoIndex, addTodo }
-}
-
-const projectFormInput = document.querySelector('.project-form input');
-
-let projects = [];
-let projectIndex = 0;
-let currentProject;
-
-function createProject(e) {
-    e.preventDefault();
-    let project = projectFactory(projectFormInput.value, projectIndex);
-    projects.push(project);
-    projectIndex += 1;
-    currentProject = project;
-    _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.closeProjectForm();
-    _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.addProject(project);
-    _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.loadProject(project);
-    (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateProjectButtons)();
-}
-
-function createDefaultProject() {
-    let project = projectFactory("Welcome", projectIndex);
-    projects.push(project);
-    projectIndex += 1;
-    currentProject = project;
-    _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.addProject(project);
-    (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateProjectButtons)();
-    (0,_todo__WEBPACK_IMPORTED_MODULE_2__.addDefaultTodo)();
-}
-
-function findProject(projectButton) {
-    let index = projectButton.parentNode.getAttribute('data-project-index');
-    currentProject = projects.find(project => project.index == index);
-    return currentProject;
-}
-
-function deleteProject() {
-    let project = findProject(this);
-    projects = projects.filter(p => p.index != project.index);
-    _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.removeProject(project);
-}
-
-function resetCurrentProject() {
-    if (projects.length > 0) {
-        currentProject = projects[0];
-        _domController__WEBPACK_IMPORTED_MODULE_0__.projectDom.loadProject(currentProject);
-    } else {
-        _domController__WEBPACK_IMPORTED_MODULE_0__.todoDom.clearTodos();
-    }
-}
-
-window.onload = createDefaultProject;
-
-
-
-/***/ }),
-
-/***/ "./src/todo.js":
-/*!*********************!*\
-  !*** ./src/todo.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "addDefaultTodo": () => (/* binding */ addDefaultTodo),
-/* harmony export */   "createTodo": () => (/* binding */ createTodo)
-/* harmony export */ });
-/* harmony import */ var _domController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./domController */ "./src/domController.js");
-/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project */ "./src/project.js");
-
-
-
-const todoFactory = (title, description, dueDate, priority, index) => {
-    
-    return { title, description, dueDate, priority, index }
-}
-
-function createTodo(e) {
-    e.preventDefault();
-    let [title, description, duedate, priority] = _domController__WEBPACK_IMPORTED_MODULE_0__.todoDom.getFormValues();
-    let index = _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex;
-    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex += 1;
-    let newTodo =  todoFactory(title, description, duedate, priority, index);
-    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.addTodo(newTodo);
-    _domController__WEBPACK_IMPORTED_MODULE_0__.todoDom.displayTodo(newTodo);
-    _domController__WEBPACK_IMPORTED_MODULE_0__.todoDom.closeTodoForm();
-}
-
-function addDefaultTodo() {
-    let today = new Date().toLocaleDateString();
-    let index = _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex;
-    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex += 1;
-    let todo = todoFactory("My first todo", "This is a todo", today, 'normal', index);
-    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.addTodo(todo);
-    _domController__WEBPACK_IMPORTED_MODULE_0__.todoDom.displayTodo(todo);
-}
-
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (todoDom);
 
 /***/ })
 
