@@ -1,4 +1,5 @@
-import { projectDom, todoDom } from "./domController";
+import projectDom from './projectDomController';
+import todoDom from './todoDomController';
 import { updateProjectButtons } from "./eventController";
 import { addDefaultTodo } from "./todo";
 

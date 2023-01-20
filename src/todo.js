@@ -1,4 +1,4 @@
-import { todoDom, projectDom } from "./domController";
+import todoDom from './todoDomController';
 import { currentProject } from "./project";
 
 const todoFactory = (title, description, dueDate, priority, index) => {

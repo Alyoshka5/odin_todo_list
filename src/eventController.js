@@ -1,7 +1,7 @@
-import { projectDom, todoDom } from "./domController";
-import { createProject } from "./project";
+import projectDom from './projectDomController';
+import todoDom from './todoDomController';
+import { createProject, deleteProject } from "./project";
 import { createTodo } from "./todo";
-import { deleteProject } from "./project";
 
 const newProjectButton = document.querySelector('#new-project-button');
 const projectForm = document.querySelector('.project-form');
