@@ -36,4 +36,10 @@ function findTodo(todoButton) {
     return todo;
 }
 
-export { createTodo, addDefaultTodo, findTodo };
+function deleteTodo() {
+    let todo = findTodo(this);
+    currentProject.todos = currentProject.todos.filter(t => t.index != todo.index);
+    todoDom.removeTodo(todo);
+}
+
+export { createTodo, addDefaultTodo, findTodo, deleteTodo };

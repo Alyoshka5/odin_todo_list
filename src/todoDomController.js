@@ -1,4 +1,5 @@
 import { findTodo } from "./todo";
+import { updateTodoButtons } from "./eventController";
 
 const todosDiv = document.querySelector('.todos');
 const editBar = document.querySelector('.edit-bar');
@@ -55,6 +56,7 @@ const todoDom = (() => {
                 <input type="checkbox" class="todo-checkbox" ${precheckCheckbox}>
                 <p class="todo-title">${todo.title}</p>
                 <p>${todo.dueDate}</p>
+                <button class="delete-todo">🗑️</button>
             </div>
         `;
     }
@@ -64,13 +66,19 @@ const todoDom = (() => {
         addTodoButton.classList.add('hide');
     }
 
+    function removeTodo(todo) {
+        let todoDiv = document.querySelector(`[data-todo-index="${todo.index}"]`);
+        todosDiv.removeChild(todoDiv);
+        updateTodoButtons();
+    }
+
     function toggleTodoCompletion() {
         let todo = findTodo(this);
         this.parentNode.classList.toggle('completed-todo');
         todo.completed = !todo.completed;
     }
 
-    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos, toggleTodoCompletion }
+    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos, removeTodo, toggleTodoCompletion }
 })();
 
 export default todoDom;

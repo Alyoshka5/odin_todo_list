@@ -1,7 +1,7 @@
 import projectDom from './projectDomController';
 import todoDom from './todoDomController';
 import { createProject, deleteProject } from "./project";
-import { createTodo } from "./todo";
+import { createTodo, deleteTodo } from "./todo";
 
 const newProjectButton = document.querySelector('#new-project-button');
 const projectForm = document.querySelector('.project-form');
@@ -12,6 +12,7 @@ const addTodoButton = document.querySelector('#add-todo-button');
 const cancelTodoButton = document.querySelector('button.cancel-todo');
 const todoForm = document.querySelector('.todo-form');
 const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
+let deleteTodoButtons = document.querySelectorAll('button.delete-todo');
 
 newProjectButton.addEventListener('click', projectDom.openProjectForm);
 projectForm.addEventListener('submit', createProject);
@@ -22,6 +23,7 @@ addTodoButton.addEventListener('click', todoDom.toggleTodoForm);
 cancelTodoButton.addEventListener('click', todoDom.closeTodoForm);
 todoForm.addEventListener('submit', createTodo);
 todoCheckboxes.forEach(checkbox => checkbox.addEventListener('click', todoDom.toggleTodoCompletion));
+deleteTodoButtons.forEach(todoButton => todoButton.addEventListener('click', deleteTodo));
 
 function updateProjectButtons() {
     projectButtons = document.querySelectorAll('.project-button');
@@ -33,6 +35,8 @@ function updateProjectButtons() {
 function updateTodoButtons() {
     const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
     todoCheckboxes.forEach(checkbox => checkbox.addEventListener('click', todoDom.toggleTodoCompletion));
+    deleteTodoButtons = document.querySelectorAll('button.delete-todo');
+    deleteTodoButtons.forEach(todoButton => todoButton.addEventListener('click', deleteTodo));
 }
 
 export { updateProjectButtons, updateTodoButtons }
