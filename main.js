@@ -537,6 +537,7 @@ const addTodoButton = document.querySelector('#add-todo-button');
 const cancelTodoButton = document.querySelector('button.cancel-todo');
 const todoForm = document.querySelector('.todo-form');
 const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
+let deleteTodoButtons = document.querySelectorAll('button.delete-todo');
 
 newProjectButton.addEventListener('click', _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].openProjectForm);
 projectForm.addEventListener('submit', _project__WEBPACK_IMPORTED_MODULE_2__.createProject);
@@ -547,6 +548,7 @@ addTodoButton.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MOD
 cancelTodoButton.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].closeTodoForm);
 todoForm.addEventListener('submit', _todo__WEBPACK_IMPORTED_MODULE_3__.createTodo);
 todoCheckboxes.forEach(checkbox => checkbox.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].toggleTodoCompletion));
+deleteTodoButtons.forEach(todoButton => todoButton.addEventListener('click', _todo__WEBPACK_IMPORTED_MODULE_3__.deleteTodo));
 
 function updateProjectButtons() {
     projectButtons = document.querySelectorAll('.project-button');
@@ -558,6 +560,8 @@ function updateProjectButtons() {
 function updateTodoButtons() {
     const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
     todoCheckboxes.forEach(checkbox => checkbox.addEventListener('click', _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].toggleTodoCompletion));
+    deleteTodoButtons = document.querySelectorAll('button.delete-todo');
+    deleteTodoButtons.forEach(todoButton => todoButton.addEventListener('click', _todo__WEBPACK_IMPORTED_MODULE_3__.deleteTodo));
 }
 
 
@@ -739,6 +743,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "addDefaultTodo": () => (/* binding */ addDefaultTodo),
 /* harmony export */   "createTodo": () => (/* binding */ createTodo),
+/* harmony export */   "deleteTodo": () => (/* binding */ deleteTodo),
 /* harmony export */   "findTodo": () => (/* binding */ findTodo)
 /* harmony export */ });
 /* harmony import */ var _todoDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoDomController */ "./src/todoDomController.js");
@@ -782,6 +787,12 @@ function findTodo(todoButton) {
     return todo;
 }
 
+function deleteTodo() {
+    let todo = findTodo(this);
+    _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todos = _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todos.filter(t => t.index != todo.index);
+    _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].removeTodo(todo);
+}
+
 
 
 /***/ }),
@@ -797,6 +808,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo */ "./src/todo.js");
+/* harmony import */ var _eventController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventController */ "./src/eventController.js");
+
 
 
 const todosDiv = document.querySelector('.todos');
@@ -854,6 +867,7 @@ const todoDom = (() => {
                 <input type="checkbox" class="todo-checkbox" ${precheckCheckbox}>
                 <p class="todo-title">${todo.title}</p>
                 <p>${todo.dueDate}</p>
+                <button class="delete-todo">🗑️</button>
             </div>
         `;
     }
@@ -863,13 +877,19 @@ const todoDom = (() => {
         addTodoButton.classList.add('hide');
     }
 
+    function removeTodo(todo) {
+        let todoDiv = document.querySelector(`[data-todo-index="${todo.index}"]`);
+        todosDiv.removeChild(todoDiv);
+        (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateTodoButtons)();
+    }
+
     function toggleTodoCompletion() {
         let todo = (0,_todo__WEBPACK_IMPORTED_MODULE_0__.findTodo)(this);
         this.parentNode.classList.toggle('completed-todo');
         todo.completed = !todo.completed;
     }
 
-    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos, toggleTodoCompletion }
+    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos, removeTodo, toggleTodoCompletion }
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (todoDom);
