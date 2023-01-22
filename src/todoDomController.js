@@ -1,4 +1,4 @@
-import { findTodo } from "./todo";
+import { todoFormAction, changeTodoFormAction, manageEditTodoForm, reloadTodoDiv, findTodo } from "./todo";
 import { updateTodoButtons } from "./eventController";
 
 const todosDiv = document.querySelector('.todos');
@@ -9,6 +9,7 @@ const todoFormTitle = document.querySelector('.todo-form .todo-title');
 const todoFormDescription = document.querySelector('.todo-form .todo-description');
 const todoFormDuedate = document.querySelector('.todo-form .todo-duedate');
 const todoFormPriority = document.querySelector('.todo-form .todo-priority');
+const todoFormSubmit = document.querySelector('#todo-form-submit');
 
 const todoDom = (() => {
     // Add todo button
@@ -22,8 +23,25 @@ const todoDom = (() => {
 
     // Todo form
     function toggleTodoForm() {
-        todoForm.classList.toggle('hide');
-        editBar.classList.toggle('hide');
+        let todoAction = this.parentNode.getAttribute('data-todo-form-action');
+        changeTodoFormAction(todoAction ? todoAction : "create");
+        if (todoFormAction == 'update') {
+            manageEditTodoForm(this);
+        } else {
+            clearFormValues();
+        }
+        todoFormSubmit.value = todoFormAction.charAt(0).toUpperCase() + todoFormAction.slice(1) + " todo";
+        if (todoForm.classList.contains('hide')) {
+            todoForm.classList.toggle('hide');
+            editBar.classList.toggle('hide');
+        }
+    }
+
+    function fillTodoForm(todo) {
+        todoFormTitle.value = todo.title;
+        todoFormDescription.value = todo.description;
+        todoFormDuedate.value = todo.dueDate;
+        todoFormPriority.value = todo.priority;
     }
 
     function clearFormValues() {
@@ -52,12 +70,23 @@ const todoDom = (() => {
         let completedClass = todo.completed ? 'completed-todo' : '';
         let precheckCheckbox = todo.completed ? 'checked' : '';
         todosDiv.innerHTML += `
-            <div class="todo ${completedClass}" data-todo-index="${todo.index}">
+            <div class="todo ${completedClass}" data-todo-index="${todo.index}" data-todo-form-action="update">
                 <input type="checkbox" class="todo-checkbox" ${precheckCheckbox}>
-                <p class="todo-title">${todo.title}</p>
-                <p>${todo.dueDate}</p>
+                <div class="todo-info">
+                    <p class="todo-title">${todo.title}</p>
+                    <p>${todo.dueDate}</p>
+                    <p>${todo.priority}</p>
+                </div>
                 <button class="delete-todo">🗑️</button>
             </div>
+        `;
+    }
+
+    function reloadTodoDiv(todoInfoDiv, todo) {
+        todoInfoDiv.innerHTML = `
+            <p class="todo-title">${todo.title}</p>
+            <p>${todo.dueDate}</p>
+            <p>${todo.priority}</p>
         `;
     }
 
@@ -69,16 +98,19 @@ const todoDom = (() => {
     function removeTodo(todo) {
         let todoDiv = document.querySelector(`[data-todo-index="${todo.index}"]`);
         todosDiv.removeChild(todoDiv);
+        closeTodoForm();
         updateTodoButtons();
     }
 
     function toggleTodoCompletion() {
         let todo = findTodo(this);
+        
         this.parentNode.classList.toggle('completed-todo');
         todo.completed = !todo.completed;
+        closeTodoForm();
     }
 
-    return { showTodoButton, hideTodoButton, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, clearTodos, removeTodo, toggleTodoCompletion }
+    return { showTodoButton, hideTodoButton, fillTodoForm, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, reloadTodoDiv, clearTodos, removeTodo, toggleTodoCompletion }
 })();
 
 export default todoDom;

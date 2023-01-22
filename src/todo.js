@@ -8,24 +8,53 @@ const todoFactory = (title, description, dueDate, priority, index) => {
     return { title, description, dueDate, priority, index, completed }
 }
 
-function createTodo(e) {
+let todoFormAction;
+let editedTodo;
+let editedTodoInfoDiv;
+
+function changeTodoFormAction(action) {
+    todoFormAction = action;
+}
+
+function manageEditTodoForm(todoInfoDiv) {
+    editedTodoInfoDiv = todoInfoDiv;
+    let todoIndex = todoInfoDiv.parentNode.getAttribute('data-todo-index');
+    editedTodo = currentProject.todos.find(todo => todo.index == todoIndex);
+    todoDom.fillTodoForm(editedTodo);
+}
+
+function manageTodoForm(e) {
     e.preventDefault();
+    if (todoFormAction == 'create') {
+        createTodo();
+    } else {
+        updateTodo();
+    }
+}
+
+function createTodo() {
     let [title, description, duedate, priority] = todoDom.getFormValues();
     let index = currentProject.todoIndex;
     currentProject.todoIndex += 1;
-    let newTodo =  todoFactory(title, description, duedate, priority, index);
-    currentProject.addTodo(newTodo);
+    let newTodo = todoFactory(title, description, duedate, priority, index);
+    currentProject.todos.push(newTodo);
     todoDom.displayTodo(newTodo);
     updateTodoButtons();
     todoDom.closeTodoForm();
 }
 
+function updateTodo() {
+    [editedTodo.title, editedTodo.description, editedTodo.dueDate, editedTodo.priority] = todoDom.getFormValues();
+    todoDom.closeTodoForm();
+    todoDom.reloadTodoDiv(editedTodoInfoDiv, editedTodo);
+}
+
 function addDefaultTodo() {
-    let today = new Date().toLocaleDateString();
+    let today = "2050-01-01T00:00";
     let index = currentProject.todoIndex;
     currentProject.todoIndex += 1;
     let todo = todoFactory("My first todo", "This is a todo", today, 'normal', index);
-    currentProject.addTodo(todo);
+    currentProject.todos.push(todo);
     todoDom.displayTodo(todo);
     updateTodoButtons();
 }
@@ -42,4 +71,4 @@ function deleteTodo() {
     todoDom.removeTodo(todo);
 }
 
-export { createTodo, addDefaultTodo, findTodo, deleteTodo };
+export { todoFormAction, changeTodoFormAction, manageEditTodoForm, manageTodoForm, updateTodo, addDefaultTodo, findTodo, deleteTodo };

@@ -44,8 +44,18 @@ h1 {
 }
 
 /* TODOS */
-.todos div {
+.todo {
     border: 2px solid black;
+    pointer-events: none;
+}
+
+.todo-info, .todo-checkbox, .delete-todo {
+    pointer-events: auto;
+}
+
+.todo:hover {
+    cursor: pointer;
+    background-color: #ebebeb;
 }
 
 .completed-todo p {

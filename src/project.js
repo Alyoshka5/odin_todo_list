@@ -6,12 +6,8 @@ import { addDefaultTodo } from "./todo";
 const projectFactory = (name, index) => {
     let todos = [];
     let todoIndex = 0;
-
-    function addTodo(newTodo) {
-        todos.push(newTodo);
-    }
     
-    return { name, index, todos, todoIndex, addTodo }
+    return { name, index, todos, todoIndex }
 }
 
 const projectFormInput = document.querySelector('.project-form input');
