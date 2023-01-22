@@ -16,7 +16,7 @@
 
     <div class="workspace">
         <div class="todos"></div>
-        <button id="add-todo-button">Add todo</button>
+        <button id="add-todo-button" data-todo-form-action="create">Add todo</button>
     </div>
     
     <div class="edit-bar hide">
@@ -42,7 +42,7 @@
                 <option value="low">Low</option>
             </select>
 
-            <input type="submit" value="Create todo">
+            <input id="todo-form-submit" type="submit">
         </form>
     </div>
     
