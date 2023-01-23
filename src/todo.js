@@ -53,7 +53,7 @@ function addDefaultTodo() {
     let today = "2050-01-01T00:00";
     let index = currentProject.todoIndex;
     currentProject.todoIndex += 1;
-    let todo = todoFactory("My first todo", "This is a todo", today, 'normal', index);
+    let todo = todoFactory("My first todo", "This is a todo", today, 'none', index);
     currentProject.todos.push(todo);
     todoDom.displayTodo(todo);
     updateTodoButtons();

@@ -9,12 +9,13 @@
 <body>
     <!-- Main content -->
     <div class="side-bar">
-        <h1>Projects</h1>
+        <h2>Projects</h2>
         <div class="projects"></div>
         <button id="new-project-button">Add project</button>
     </div>
 
     <div class="workspace">
+        <h1 class="project-title"></h1>
         <div class="todos"></div>
         <button id="add-todo-button" data-todo-form-action="create">Add todo</button>
     </div>
@@ -25,21 +26,21 @@
             <button type="button" class="cancel-todo">X</button>
 
             <label for="todo-title">Title</label>
-            <input class="todo-title" type="text" name="todo-title" required="true">
+            <input id="todo-title" type="text" name="todo-title" required="true">
 
             <label for="todo-description">Description</label>
-            <textarea class="todo-description" name="todo-description"></textarea>
+            <textarea id="todo-description" name="todo-description"></textarea>
 
             <label for="todo-duedate">Due date</label>
-            <input class="todo-duedate" type="datetime-local" name="todo-duedate">
+            <input id="todo-duedate" type="datetime-local" name="todo-duedate">
 
             <label for="todo-priority">Priority</label>
-            <select class="todo-priority" name="todo-priority">
-                <option value="none">None</option>
-                <option value="urgent">Urgent</option>
-                <option value="high">High</option>
-                <option value="normal">Normal</option>
-                <option value="low">Low</option>
+            <select id="todo-priority" class="none-priority" name="todo-priority">
+                <option class="none-priority" value="none">None 🏴</option>
+                <option value="low" class="low-priority">Low 🏴</option>
+                <option value="normal" class="normal-priority">Normal 🏴</option>
+                <option value="high" class="high-priority">High 🏴</option>
+                <option value="urgent" class="urgent-priority">Urgent 🏴</option>
             </select>
 
             <input id="todo-form-submit" type="submit">

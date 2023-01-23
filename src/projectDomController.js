@@ -3,6 +3,7 @@ import { updateProjectButtons, updateTodoButtons } from "./eventController";
 import { findProject, resetCurrentProject } from "./project";
 
 
+const projectTitle = document.querySelector('.project-title');
 const todosDiv = document.querySelector('.todos');
 const addTodoButton = document.querySelector('#add-todo-button');
 const projectForm = document.querySelector('.project-form');
@@ -25,6 +26,7 @@ const projectDom = (() => {
     
     // Project display
     function addProject(project) {
+        projectTitle.textContent = project.name;
         projectsDiv.innerHTML += `
         <div class="project-div" data-project-index="${project.index}">
             <button class="project-button">${project.name}</button>

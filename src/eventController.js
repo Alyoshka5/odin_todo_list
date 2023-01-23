@@ -14,6 +14,7 @@ const todoForm = document.querySelector('.todo-form');
 let deleteTodoButtons = document.querySelectorAll('button.delete-todo');
 let todosInfo = document.querySelectorAll('.todo-info');
 let todoCheckboxes = document.querySelectorAll('.todo-checkbox');
+const todoFormPriority = document.querySelector('#todo-priority');
 
 newProjectButton.addEventListener('click', projectDom.openProjectForm);
 projectForm.addEventListener('submit', createProject);
@@ -26,6 +27,7 @@ todoForm.addEventListener('submit', manageTodoForm);
 deleteTodoButtons.forEach(todoButton => todoButton.addEventListener('click', deleteTodo));
 todosInfo.forEach(todoInfo => todoInfo.addEventListener('click', todoDom.toggleTodoForm));
 todoCheckboxes.forEach(checkbox => checkbox.addEventListener('click', todoDom.toggleTodoCompletion));
+todoFormPriority.addEventListener('change', todoDom.changePriorityStyle);
 
 function updateProjectButtons() {
     projectButtons = document.querySelectorAll('.project-button');

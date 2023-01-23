@@ -1,14 +1,15 @@
-import { todoFormAction, changeTodoFormAction, manageEditTodoForm, reloadTodoDiv, findTodo } from "./todo";
+import { compareAsc, format } from 'date-fns'
+import { todoFormAction, changeTodoFormAction, manageEditTodoForm, findTodo } from "./todo";
 import { updateTodoButtons } from "./eventController";
 
 const todosDiv = document.querySelector('.todos');
 const editBar = document.querySelector('.edit-bar');
 const addTodoButton = document.querySelector('#add-todo-button');
 const todoForm = document.querySelector('.todo-form');
-const todoFormTitle = document.querySelector('.todo-form .todo-title');
-const todoFormDescription = document.querySelector('.todo-form .todo-description');
-const todoFormDuedate = document.querySelector('.todo-form .todo-duedate');
-const todoFormPriority = document.querySelector('.todo-form .todo-priority');
+const todoFormTitle = document.querySelector('#todo-title');
+const todoFormDescription = document.querySelector('#todo-description');
+const todoFormDuedate = document.querySelector('#todo-duedate');
+const todoFormPriority = document.querySelector('#todo-priority');
 const todoFormSubmit = document.querySelector('#todo-form-submit');
 
 const todoDom = (() => {
@@ -66,16 +67,22 @@ const todoDom = (() => {
         return [title, description, duedate, priority];
     }
 
+    function changePriorityStyle() {
+        todoFormPriority.classList = `${todoFormPriority.value}-priority`;
+    }
+
+    // Display and modify todos
     function displayTodo(todo) {
         let completedClass = todo.completed ? 'completed-todo' : '';
         let precheckCheckbox = todo.completed ? 'checked' : '';
+        let formatedDueDate = format(new Date(todo.dueDate), `dd/MM/yyyy p`);
         todosDiv.innerHTML += `
             <div class="todo ${completedClass}" data-todo-index="${todo.index}" data-todo-form-action="update">
                 <input type="checkbox" class="todo-checkbox" ${precheckCheckbox}>
                 <div class="todo-info">
                     <p class="todo-title">${todo.title}</p>
-                    <p>${todo.dueDate}</p>
-                    <p>${todo.priority}</p>
+                    <p>${formatedDueDate}</p>
+                    <p class="${todo.priority}-priority">🏴</p>
                 </div>
                 <button class="delete-todo">🗑️</button>
             </div>
@@ -86,7 +93,7 @@ const todoDom = (() => {
         todoInfoDiv.innerHTML = `
             <p class="todo-title">${todo.title}</p>
             <p>${todo.dueDate}</p>
-            <p>${todo.priority}</p>
+            <p class="${todo.priority}-priority">🏴</p>
         `;
     }
 
@@ -110,7 +117,7 @@ const todoDom = (() => {
         closeTodoForm();
     }
 
-    return { showTodoButton, hideTodoButton, fillTodoForm, toggleTodoForm, closeTodoForm, getFormValues, displayTodo, reloadTodoDiv, clearTodos, removeTodo, toggleTodoCompletion }
+    return { showTodoButton, hideTodoButton, fillTodoForm, toggleTodoForm, closeTodoForm, getFormValues,changePriorityStyle, displayTodo, reloadTodoDiv, clearTodos, removeTodo, toggleTodoCompletion }
 })();
 
 export default todoDom;
