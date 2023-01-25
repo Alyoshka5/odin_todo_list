@@ -9,51 +9,61 @@
 <body>
     <!-- Main content -->
     <div class="side-bar">
-        <h2>Projects</h2>
+        <h2 class="projects-header">Projects</h2>
         <div class="projects"></div>
-        <button id="new-project-button">Add project</button>
+        <button id="new-project-button">＋ New project</button>
     </div>
 
     <div class="workspace">
         <h1 class="project-title"></h1>
         <div class="todos"></div>
-        <button id="add-todo-button" data-todo-form-action="create">Add todo</button>
+        <button id="add-todo-button" data-todo-form-action="create">＋ Add todo</button>
     </div>
     
     <div class="edit-bar hide">
         <!-- Todo form -->
         <form class="todo-form hide">
-            <button type="button" class="cancel-todo">X</button>
+            <button type="button" class="cancel-todo">✕</button>
+            <h3 class="todo-form-header"></h3>
 
-            <label for="todo-title">Title</label>
-            <input id="todo-title" type="text" name="todo-title" required="true">
+            <div class="todo-form-input-div">
+                <label for="todo-title">Title</label><br>
+                <input id="todo-title-input" class="todo-input" type="text" name="todo-title" required="true">
+            </div>
+            
+            <div class="todo-form-input-div">
+                <label for="todo-description">Description</label><br>
+                <textarea id="todo-description-input" class="todo-input" name="todo-description"></textarea>
+            </div>
 
-            <label for="todo-description">Description</label>
-            <textarea id="todo-description" name="todo-description"></textarea>
+            <div class="todo-form-input-div todo-duedate-priority-input-div">
+                <label for="todo-duedate">Due date</label>
+                <input id="todo-duedate-input" class="todo-input" type="datetime-local" name="todo-duedate">
 
-            <label for="todo-duedate">Due date</label>
-            <input id="todo-duedate" type="datetime-local" name="todo-duedate">
+                <label for="todo-priority">Priority</label>
+                <select id="todo-priority-input" class="todo-input none-priority" name="todo-priority">
+                    <option class="none-priority" value="none">None 🏴</option>
+                    <option value="low" class="low-priority">Low 🏴</option>
+                    <option value="normal" class="normal-priority">Normal 🏴</option>
+                    <option value="high" class="high-priority">High 🏴</option>
+                    <option value="urgent" class="urgent-priority">Urgent 🏴</option>
+                </select>
+            </div>
 
-            <label for="todo-priority">Priority</label>
-            <select id="todo-priority" class="none-priority" name="todo-priority">
-                <option class="none-priority" value="none">None 🏴</option>
-                <option value="low" class="low-priority">Low 🏴</option>
-                <option value="normal" class="normal-priority">Normal 🏴</option>
-                <option value="high" class="high-priority">High 🏴</option>
-                <option value="urgent" class="urgent-priority">Urgent 🏴</option>
-            </select>
-
-            <input id="todo-form-submit" type="submit">
+            <input id="todo-form-submit" class="todo-form-input-div" type="submit">
         </form>
     </div>
     
     <!-- Project form -->
     <div class="screen-gate hide"></div>
     <form class="project-form hide">
-        <button type="button" class="cancel-button">X</button>
-        <label for="project-name">Project Name</label>
-        <input type="text" name="project-name" required="true">
-        <input type="submit">
+        <h3 class="project-form-header">Create project</h3>
+        <button type="button" class="cancel-project">✕</button>
+        <div class="project-name-input-div">
+            <label for="project-name">Project Name</label>
+            <input id="project-name-input" type="text" name="project-name" required="true">
+        </div>
+        <input id="project-form-submit" type="submit" value="Create">
     </form>
 
 
