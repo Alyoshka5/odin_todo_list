@@ -21,11 +21,16 @@ function createProject(e) {
     let project = projectFactory(projectFormInput.value, projectIndex);
     projects.push(project);
     projectIndex += 1;
+    let currentProjectDiv = document.querySelector(`.project-div[data-project-index="${currentProject.index}"`);
+    currentProjectDiv.classList.remove('current-project');
     currentProject = project;
     projectDom.closeProjectForm();
     projectDom.addProject(project);
     projectDom.loadProject(project);
     updateProjectButtons();
+    todoDom.closeTodoForm();
+    let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
+    projectDiv.classList.add('current-project');
 }
 
 function createDefaultProject() {
@@ -34,6 +39,8 @@ function createDefaultProject() {
     projectIndex += 1;
     currentProject = project;
     projectDom.addProject(project);
+    let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
+    projectDiv.classList.add('current-project');
     updateProjectButtons();
     addDefaultTodo();
 }

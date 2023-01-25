@@ -10,14 +10,12 @@ const todoFactory = (title, description, dueDate, priority, index) => {
 
 let todoFormAction;
 let editedTodo;
-let editedTodoInfoDiv;
 
 function changeTodoFormAction(action) {
     todoFormAction = action;
 }
 
 function manageEditTodoForm(todoInfoDiv) {
-    editedTodoInfoDiv = todoInfoDiv;
     let todoIndex = todoInfoDiv.parentNode.getAttribute('data-todo-index');
     editedTodo = currentProject.todos.find(todo => todo.index == todoIndex);
     todoDom.fillTodoForm(editedTodo);
@@ -46,7 +44,7 @@ function createTodo() {
 function updateTodo() {
     [editedTodo.title, editedTodo.description, editedTodo.dueDate, editedTodo.priority] = todoDom.getFormValues();
     todoDom.closeTodoForm();
-    todoDom.reloadTodoDiv(editedTodoInfoDiv, editedTodo);
+    todoDom.reloadTodoDiv(editedTodo);
 }
 
 function addDefaultTodo() {
