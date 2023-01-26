@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    overflow-x: hidden;\n    overflow-y: hidden;\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 18% 1fr 25%;\n}\n\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n    padding: 20px 60px 10px;\n    box-sizing: border-box;\n    overflow-y: auto;\n}\n\n.project-title {\n    color: #2b343b;\n    margin: 0 0 3px 0;\n}\n\n/* PROJECTS */\n.side-bar {\n    background-color: #2b343b;\n    padding: 15px 0;\n    overflow-y: auto;\n}\n\n.projects-header {\n    color: #fff;\n    margin: 5px 15px;\n}\n\na.delete-project {\n    display: none;\n    padding: 0 10px;\n    height: 100%;\n}\n\na.delete-project:hover {\n    background-color: #485069;\n}\n\n.project-button {\n    width: 100%;\n    padding: 0 15px;\n}\n\n.project-div {\n    color: #fff;\n    min-height: 25px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.project-div:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n.project-div:hover a.delete-project {\n    display: initial;\n}\n\n.current-project {\n    background-color: #3b4257;\n}\n\n#new-project-button {\n    color: #fff;\n    background-color: #00000000;\n    text-align: start;\n    height: 25px;\n    width: 100%;\n    padding: 0 10px;\n    margin: 5px 0;\n    border: none;\n}\n\n#new-project-button:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    width: 20%;\n    padding: 15px;\n    border-radius: 10px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.project-form label {\n    color: #2b343b;\n}\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n.cancel-project {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 5px;\n    border: none;\n    float: right;\n}\n.cancel-project:hover {\n    cursor: pointer;\n}\n\n.project-form-header {\n    color: #2b343b;\n    margin: 0;\n    display: inline;\n}\n\n.project-name-input-div {\n    margin: 5px 0;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#project-name-input {\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n#project-name-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n#project-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#project-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n/* TODOS */\n.todo {\n\n    padding: 5px;\n    pointer-events: none;\n    display: grid;\n    grid-template-columns: auto 1fr auto;\n}\n\n.todo p {\n    display: inline;\n}\n\n.todo-divider {\n    height: 0.7px;\n    background-color: #ebebeb;\n}\n\n.todo-info {\n    padding: 0 5px;\n    display: grid;\n    grid-template-columns: 45% 1fr auto;\n    align-items: center;\n    gap: 5px;\n}\n\n.todo-info > * {\n    margin: 0;\n}\n\n.todo-dueDate {\n    color: #3d3d3d;\n    font-size: 14px;\n}\n\n.delete-todo {\n    background-color: #ffffff00;\n    font-size: 17px;\n    text-align: center;\n    padding: 0 6px;\n    border: none;\n    border-radius: 5px;\n}\n\n.delete-todo:hover {\n    cursor: pointer;\n    background-color: #d6d6d6;\n}\n\n.todo-info, .todo-checkbox, .delete-todo {\n    pointer-events: auto;\n}\n\n.todo:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n.completed-todo p {\n    opacity: 0.6;\n}\n\n.completed-todo .todo-title {\n    text-decoration: line-through;\n}\n\n.none-priority { color: #bababa; }\n.low-priority { color: #2ecd6f; }\n.normal-priority { color: #6fddfe; }\n.high-priority { color: #fecc00; }\n.urgent-priority { color: #f50000; }\n\n#add-todo-button {\n    background-color: #00000000;\n    padding: 4px 10px 4px 8px;\n    margin: 5px 0;\n    border: none;\n    border-radius: 5px;\n}\n\n#add-todo-button:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    padding: 15px;\n    box-shadow: -5px 0 5px #e0e0e0;\n    display: flex;\n    flex-direction: column;\n}\n\n.edit-bar label {\n    color: #2b343b;\n}\n\n.cancel-todo {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 10px;\n    border: none;\n}\n.cancel-todo:hover {\n    cursor: pointer;\n}\n\n.todo-form-header {\n    color: #2b343b;\n    margin: 0;\n}\n\n#todo-title-input, #todo-description-input {\n    height: 25px;\n    width: 100%;\n    padding: 0 5px;\n    border-radius: 3px;\n    border: 1px solid #2b343b;\n    box-sizing: border-box;\n}\n\n#todo-description-input {\n    height: 100px;\n    resize: none;\n    padding: 5px;\n}\n\n.todo-duedate-priority-input-div {\n    width: 100%;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#todo-priority-input {\n    background-color: #fff;\n    padding: 124px;\n}\n\n#todo-duedate-input, #todo-priority-input {\n    width: fit-content;\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n\n#todo-title-input:focus, #todo-description-input:focus, #todo-duedate-input:focus, #todo-priority-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n.todo-form-input-div {\n    margin-top: 10px;\n}\n\n#todo-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#todo-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* HIDE */\n.hide { display: none; }", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap');\n/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    overflow-x: hidden;\n    overflow-y: hidden;\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 18% 1fr 25%;\n}\n\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n    padding: 20px 60px 10px;\n    box-sizing: border-box;\n    overflow-y: auto;\n}\n\n.project-title {\n    color: #2b343b;\n    margin: 0 0 3px 0;\n}\n\n/* PROJECTS */\n.side-bar {\n    background-color: #2b343b;\n    padding: 15px 0;\n    overflow-y: auto;\n}\n\n.projects-header {\n    color: #fff;\n    margin: 5px 15px;\n}\n\na.delete-project {\n    display: none;\n    padding: 0 10px;\n    height: 100%;\n}\n\na.delete-project:hover {\n    background-color: #485069;\n}\n\n.project-button {\n    width: 100%;\n    padding: 0 15px;\n}\n\n.project-div {\n    color: #fff;\n    min-height: 25px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.project-div:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n.project-div:hover a.delete-project {\n    display: initial;\n}\n\n.current-project {\n    background-color: #3b4257;\n}\n\n#new-project-button {\n    color: #fff;\n    background-color: #00000000;\n    text-align: start;\n    height: 25px;\n    width: 100%;\n    padding: 0 10px;\n    margin: 5px 0;\n    border: none;\n}\n\n#new-project-button:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    width: 20%;\n    padding: 15px;\n    border-radius: 10px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.project-form label {\n    color: #2b343b;\n}\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n.cancel-project {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 5px;\n    border: none;\n    float: right;\n}\n.cancel-project:hover {\n    cursor: pointer;\n}\n\n.project-form-header {\n    color: #2b343b;\n    margin: 0;\n    display: inline;\n}\n\n.project-name-input-div {\n    margin: 5px 0;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#project-name-input {\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n#project-name-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n#project-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#project-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n/* TODOS */\n.todo {\n\n    padding: 5px;\n    pointer-events: none;\n    display: grid;\n    grid-template-columns: auto 1fr auto;\n}\n\n.todo p {\n    display: inline;\n}\n\n.todo-divider {\n    height: 0.7px;\n    background-color: #ebebeb;\n}\n\n.todo-info {\n    padding: 0 5px;\n    display: grid;\n    grid-template-columns: 45% 1fr auto;\n    align-items: center;\n    gap: 5px;\n}\n\n.todo-info > * {\n    margin: 0;\n}\n\n.todo-dueDate {\n    color: #3d3d3d;\n    font-size: 14px;\n}\n\n.delete-todo {\n    background-color: #ffffff00;\n    font-size: 17px;\n    text-align: center;\n    padding: 0 6px;\n    border: none;\n    border-radius: 5px;\n}\n\n.delete-todo:hover {\n    cursor: pointer;\n    background-color: #d6d6d6;\n}\n\n.todo-info, .todo-checkbox, .delete-todo {\n    pointer-events: auto;\n}\n\n.todo:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n.completed-todo p {\n    opacity: 0.6;\n}\n\n.completed-todo .todo-title {\n    text-decoration: line-through;\n}\n\n.none-priority { color: #bababa; }\n.low-priority { color: #2ecd6f; }\n.normal-priority { color: #6fddfe; }\n.high-priority { color: #fecc00; }\n.urgent-priority { color: #f50000; }\n\n#add-todo-button {\n    background-color: #00000000;\n    padding: 4px 10px 4px 8px;\n    margin: 5px 0;\n    border: none;\n    border-radius: 5px;\n}\n\n#add-todo-button:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    padding: 15px;\n    box-shadow: -5px 0 5px #e0e0e0;\n    display: flex;\n    flex-direction: column;\n}\n\n.edit-bar label {\n    color: #2b343b;\n}\n\n.cancel-todo {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 10px;\n    border: none;\n}\n.cancel-todo:hover {\n    cursor: pointer;\n}\n\n.todo-form-header {\n    color: #2b343b;\n    margin: 0;\n}\n\n#todo-title-input, #todo-description-input {\n    height: 25px;\n    width: 100%;\n    padding: 0 5px;\n    border-radius: 3px;\n    border: 1px solid #2b343b;\n    box-sizing: border-box;\n}\n\n#todo-description-input {\n    height: 100px;\n    resize: none;\n    padding: 5px;\n}\n\n.todo-duedate-priority-input-div {\n    width: 100%;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#todo-priority-input {\n    background-color: #fff;\n    padding: 124px;\n}\n\n#todo-duedate-input, #todo-priority-input {\n    width: fit-content;\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n\n#todo-title-input:focus, #todo-description-input:focus, #todo-duedate-input:focus, #todo-priority-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n.todo-form-input-div {\n    margin-top: 10px;\n}\n\n#todo-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#todo-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* HIDE */\n.hide { display: none; }"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    overflow-x: hidden;\n    overflow-y: hidden;\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 18% 1fr 25%;\n}\n\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n    padding: 20px 60px 10px;\n    box-sizing: border-box;\n    overflow-y: auto;\n}\n\n.project-title {\n    color: #2b343b;\n    margin: 0 0 3px 0;\n}\n\n/* PROJECTS */\n.side-bar {\n    background-color: #2b343b;\n    padding: 15px 0;\n    overflow-y: auto;\n}\n\n.projects-header {\n    color: #fff;\n    margin: 5px 15px;\n}\n\na.delete-project {\n    display: none;\n    padding: 0 10px;\n    height: 100%;\n}\n\na.delete-project:hover {\n    background-color: #485069;\n}\n\n.project-button {\n    width: 100%;\n    padding: 0 15px;\n}\n\n.project-div {\n    color: #fff;\n    min-height: 25px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.project-div:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n.project-div:hover a.delete-project {\n    display: initial;\n}\n\n.current-project {\n    background-color: #3b4257;\n}\n\n#new-project-button {\n    color: #fff;\n    background-color: #00000000;\n    text-align: start;\n    height: 25px;\n    width: 100%;\n    padding: 0 10px;\n    margin: 5px 0;\n    border: none;\n}\n\n#new-project-button:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    width: 20%;\n    padding: 15px;\n    border-radius: 10px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.project-form label {\n    color: #2b343b;\n}\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n.cancel-project {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 5px;\n    border: none;\n    float: right;\n}\n.cancel-project:hover {\n    cursor: pointer;\n}\n\n.project-form-header {\n    color: #2b343b;\n    margin: 0;\n    display: inline;\n}\n\n.project-name-input-div {\n    margin: 5px 0;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#project-name-input {\n    width: 100%;\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n#project-name-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n#project-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#project-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n/* TODOS */\n.todo {\n\n    padding: 5px;\n    pointer-events: none;\n    display: grid;\n    grid-template-columns: auto 1fr auto;\n}\n\n.todo p {\n    display: inline;\n}\n\n.todo-divider {\n    height: 0.7px;\n    background-color: #ebebeb;\n}\n\n.todo-info {\n    padding: 0 5px;\n    display: grid;\n    grid-template-columns: 45% 1fr auto;\n    align-items: center;\n    gap: 5px;\n}\n\n.todo-info > * {\n    margin: 0;\n}\n\n.todo-dueDate {\n    color: #3d3d3d;\n    font-size: 14px;\n}\n\n.delete-todo {\n    background-color: #ffffff00;\n    font-size: 17px;\n    text-align: center;\n    padding: 0 6px;\n    border: none;\n    border-radius: 5px;\n}\n\n.delete-todo:hover {\n    cursor: pointer;\n    background-color: #d6d6d6;\n}\n\n.todo-info, .todo-checkbox, .delete-todo {\n    pointer-events: auto;\n}\n\n.todo:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n.completed-todo p {\n    opacity: 0.6;\n}\n\n.completed-todo .todo-title {\n    text-decoration: line-through;\n}\n\n.none-priority { color: #bababa; }\n.low-priority { color: #2ecd6f; }\n.normal-priority { color: #6fddfe; }\n.high-priority { color: #fecc00; }\n.urgent-priority { color: #f50000; }\n\n#add-todo-button {\n    background-color: #00000000;\n    padding: 4px 10px 4px 8px;\n    margin: 5px 0;\n    border: none;\n    border-radius: 5px;\n}\n\n#add-todo-button:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    padding: 15px;\n    box-shadow: -5px 0 5px #e0e0e0;\n    display: flex;\n    flex-direction: column;\n}\n\n.edit-bar label {\n    color: #2b343b;\n}\n\n.cancel-todo {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 10px;\n    border: none;\n}\n.cancel-todo:hover {\n    cursor: pointer;\n}\n\n.todo-form-header {\n    color: #2b343b;\n    margin: 0;\n}\n\n#todo-title-input, #todo-description-input {\n    height: 25px;\n    width: 100%;\n    padding: 0 5px;\n    border-radius: 3px;\n    border: 1px solid #2b343b;\n    box-sizing: border-box;\n}\n\n#todo-description-input {\n    height: 100px;\n    resize: none;\n    padding: 5px;\n}\n\n.todo-duedate-priority-input-div {\n    width: 100%;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#todo-priority-input {\n    background-color: #fff;\n    padding: 124px;\n}\n\n#todo-duedate-input, #todo-priority-input {\n    width: fit-content;\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n\n#todo-title-input:focus, #todo-description-input:focus, #todo-duedate-input:focus, #todo-priority-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n.todo-form-input-div {\n    margin-top: 10px;\n}\n\n#todo-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#todo-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* HIDE */\n.hide { display: none; }", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap');\n/* font-family: 'Noto Sans', sans-serif; */\n\nbody {\n    overflow-x: hidden;\n    overflow-y: hidden;\n    height: 100vh;\n    width: 100vw;\n    margin: 0;\n    font-family: 'Noto Sans', sans-serif;\n    display: grid;\n    grid-template-columns: 18% 1fr 25%;\n}\n\n\n.workspace {\n    background-color: #fff;\n    height: 100%;\n    width: fit-content(100%);\n    padding: 20px 60px 10px;\n    box-sizing: border-box;\n    overflow-y: auto;\n}\n\n.project-title {\n    color: #2b343b;\n    margin: 0 0 3px 0;\n}\n\n/* PROJECTS */\n.side-bar {\n    background-color: #2b343b;\n    padding: 15px 0;\n    overflow-y: auto;\n}\n\n.projects-header {\n    color: #fff;\n    margin: 5px 15px;\n}\n\na.delete-project {\n    display: none;\n    padding: 0 10px;\n    height: 100%;\n}\n\na.delete-project:hover {\n    background-color: #485069;\n}\n\n.project-button {\n    width: 100%;\n    padding: 0 15px;\n}\n\n.project-div {\n    color: #fff;\n    min-height: 25px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.project-div:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n.project-div:hover a.delete-project {\n    display: initial;\n}\n\n.current-project {\n    background-color: #3b4257;\n}\n\n#new-project-button {\n    color: #fff;\n    background-color: #00000000;\n    text-align: start;\n    height: 25px;\n    width: 100%;\n    padding: 0 10px;\n    margin: 5px 0;\n    border: none;\n}\n\n#new-project-button:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* PROJECT FORM */\n.project-form {\n    background-color: #fff;\n    width: 20%;\n    padding: 15px;\n    border-radius: 10px;\n    position: absolute;\n    justify-self: center;\n    align-self: center;\n}\n\n.project-form label {\n    color: #2b343b;\n}\n\n.screen-gate {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #9c9c9c3e;\n}\n\n.cancel-project {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 5px;\n    border: none;\n    float: right;\n}\n.cancel-project:hover {\n    cursor: pointer;\n}\n\n.project-form-header {\n    color: #2b343b;\n    margin: 0;\n    display: inline;\n}\n\n.project-name-input-div {\n    margin: 5px 0;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#project-name-input {\n    width: 100%;\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n#project-name-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n#project-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#project-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n/* TODOS */\n.todo {\n\n    padding: 5px;\n    pointer-events: none;\n    display: grid;\n    grid-template-columns: auto 1fr auto;\n}\n\n.todo p {\n    display: inline;\n}\n\n.todo-divider {\n    height: 0.7px;\n    background-color: #ebebeb;\n}\n\n.todo-info {\n    padding: 0 5px;\n    display: grid;\n    grid-template-columns: 45% 1fr auto;\n    align-items: center;\n    gap: 5px;\n}\n\n.todo-info > * {\n    margin: 0;\n}\n\n.todo-dueDate {\n    color: #3d3d3d;\n    font-size: 14px;\n}\n\n.delete-todo {\n    background-color: #ffffff00;\n    font-size: 17px;\n    text-align: center;\n    padding: 0 6px;\n    border: none;\n    border-radius: 5px;\n}\n\n.delete-todo:hover {\n    cursor: pointer;\n    background-color: #d6d6d6;\n}\n\n.todo-info, .todo-checkbox, .delete-todo {\n    pointer-events: auto;\n}\n\n.todo:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n.completed-todo p {\n    opacity: 0.6;\n}\n\n.completed-todo .todo-title {\n    text-decoration: line-through;\n}\n\n.none-priority { color: #bababa; }\n.low-priority { color: #2ecd6f; }\n.normal-priority { color: #6fddfe; }\n.high-priority { color: #fecc00; }\n.urgent-priority { color: #f50000; }\n\n#add-todo-button {\n    background-color: #00000000;\n    padding: 4px 10px 4px 8px;\n    margin: 5px 0;\n    border: none;\n    border-radius: 5px;\n}\n\n#add-todo-button:hover {\n    cursor: pointer;\n    background-color: #ebebeb;\n}\n\n/* EDIT BAR */\n.edit-bar {\n    background-color: #fff;\n    padding: 15px;\n    box-shadow: -5px 0 5px #e0e0e0;\n    display: flex;\n    flex-direction: column;\n}\n\n.edit-bar label {\n    color: #2b343b;\n}\n\n.cancel-todo {\n    color: #667887;\n    background-color: #00000000;\n    font-size: 16px;\n    padding: 0;\n    margin-bottom: 10px;\n    border: none;\n}\n.cancel-todo:hover {\n    cursor: pointer;\n}\n\n.todo-form-header {\n    color: #2b343b;\n    margin: 0;\n}\n\n#todo-title-input, #todo-description-input {\n    height: 25px;\n    width: 100%;\n    padding: 0 5px;\n    border-radius: 3px;\n    border: 1px solid #2b343b;\n    box-sizing: border-box;\n}\n\n#todo-description-input {\n    height: 100px;\n    resize: none;\n    padding: 5px;\n}\n\n.todo-duedate-priority-input-div {\n    width: 100%;\n    display: grid;\n    grid-template-columns: auto 1fr;\n    gap: 10px;\n}\n\n#todo-priority-input {\n    background-color: #fff;\n    padding: 124px;\n}\n\n#todo-duedate-input, #todo-priority-input {\n    width: fit-content;\n    padding: 2px;\n    border: 1px solid #2b343b;\n    border-radius: 3px;\n}\n\n#todo-title-input:focus, #todo-description-input:focus, #todo-duedate-input:focus, #todo-priority-input:focus {\n    outline: none;\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n    border-color: #c2c2c2;\n}\n\n.todo-form-input-div {\n    margin-top: 10px;\n}\n\n#todo-form-submit {\n    color: #fff;\n    background-color: #2b343b;\n    font-size: 14px;\n    padding: 5px 25px;\n    border: none;\n    border-radius: 5px;\n}\n#todo-form-submit:hover {\n    cursor: pointer;\n    background-color: #3b4257;\n}\n\n\n/* HIDE */\n.hide { display: none; }"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3516,6 +3516,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "currentProject": () => (/* binding */ currentProject),
 /* harmony export */   "deleteProject": () => (/* binding */ deleteProject),
 /* harmony export */   "findProject": () => (/* binding */ findProject),
+/* harmony export */   "reloadLocalStorage": () => (/* binding */ reloadLocalStorage),
 /* harmony export */   "resetCurrentProject": () => (/* binding */ resetCurrentProject)
 /* harmony export */ });
 /* harmony import */ var _projectDomController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectDomController */ "./src/projectDomController.js");
@@ -3540,33 +3541,39 @@ let projects = [];
 let projectIndex = 0;
 let currentProject;
 
+function reloadLocalStorage() {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
+
 function createProject(e) {
     e.preventDefault();
     let project = projectFactory(projectFormInput.value, projectIndex);
     projects.push(project);
     projectIndex += 1;
+    localStorage.setItem('projectIndex', JSON.stringify(projectIndex));
     let currentProjectDiv = document.querySelector(`.project-div[data-project-index="${currentProject.index}"`);
     currentProjectDiv.classList.remove('current-project');
     currentProject = project;
     _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].closeProjectForm();
     _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].addProject(project);
+    reloadLocalStorage();
     _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].loadProject(project);
     (0,_eventController__WEBPACK_IMPORTED_MODULE_2__.updateProjectButtons)();
     _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].closeTodoForm();
-    let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
-    projectDiv.classList.add('current-project');
+    _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].setCurrentProjectStyling(project);
 }
 
 function createDefaultProject() {
     let project = projectFactory("Welcome", projectIndex);
     projects.push(project);
     projectIndex += 1;
+    localStorage.setItem('projectIndex', JSON.stringify(projectIndex));
     currentProject = project;
     _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].addProject(project);
-    let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
-    projectDiv.classList.add('current-project');
+    _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].setCurrentProjectStyling(project);
     (0,_eventController__WEBPACK_IMPORTED_MODULE_2__.updateProjectButtons)();
     (0,_todo__WEBPACK_IMPORTED_MODULE_3__.addDefaultTodo)();
+    reloadLocalStorage();
 }
 
 function findProject(projectButton) {
@@ -3579,18 +3586,31 @@ function deleteProject() {
     let project = findProject(this);
     projects = projects.filter(p => p.index != project.index);
     _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].removeProject(project);
+    reloadLocalStorage();
 }
 
 function resetCurrentProject() {
     if (projects.length > 0) {
         currentProject = projects[0];
         _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].loadProject(currentProject);
+        _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].setCurrentProjectStyling(currentProject);
     } else {
         _todoDomController__WEBPACK_IMPORTED_MODULE_1__["default"].clearTodos();
     }
 }
 
-window.onload = createDefaultProject;
+function manageProjectLoading() {
+    if (localStorage.getItem('projects')) {
+        projects = JSON.parse(localStorage.getItem('projects'));
+        projectIndex = parseInt(localStorage.getItem('projectIndex'));
+        _projectDomController__WEBPACK_IMPORTED_MODULE_0__["default"].addStoredProjects(projects);
+        resetCurrentProject();
+    } else {
+        createDefaultProject();
+    }
+}
+
+window.onload = manageProjectLoading;
 
 
 
@@ -3646,6 +3666,17 @@ const projectDom = (() => {
         `;
     }
 
+    function addStoredProjects(projects) {
+        projects.forEach(project => addProject(project));
+        (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateProjectButtons)();
+        (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateTodoButtons)();
+    }
+
+    function setCurrentProjectStyling(project) {
+        let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
+        projectDiv.classList.add('current-project');
+    }
+
     function setCurrentProject(projectButton) {
         let currentProjectDiv = document.querySelector(`.project-div[data-project-index="${_project__WEBPACK_IMPORTED_MODULE_2__.currentProject.index}"`);
         currentProjectDiv.classList.remove('current-project');
@@ -3677,7 +3708,7 @@ const projectDom = (() => {
         (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateProjectButtons)();
     }
     
-    return { openProjectForm, closeProjectForm, addProject, displayProject, setCurrentProject, loadProject, removeProject } 
+    return { openProjectForm, closeProjectForm, addProject, addStoredProjects, displayProject, setCurrentProjectStyling, setCurrentProject, loadProject, removeProject } 
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectDom);
@@ -3742,6 +3773,7 @@ function createTodo() {
     _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todoIndex += 1;
     let newTodo = todoFactory(title, description, duedate, priority, index);
     _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todos.push(newTodo);
+    (0,_project__WEBPACK_IMPORTED_MODULE_1__.reloadLocalStorage)();
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].displayTodo(newTodo);
     (0,_eventController__WEBPACK_IMPORTED_MODULE_2__.updateTodoButtons)();
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].closeTodoForm();
@@ -3751,6 +3783,7 @@ function updateTodo() {
     [editedTodo.title, editedTodo.description, editedTodo.dueDate, editedTodo.priority] = _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].getFormValues();
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].closeTodoForm();
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].reloadTodoDiv(editedTodo);
+    (0,_project__WEBPACK_IMPORTED_MODULE_1__.reloadLocalStorage)();
 }
 
 function addDefaultTodo() {
@@ -3773,6 +3806,7 @@ function deleteTodo() {
     let todo = findTodo(this);
     _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todos = _project__WEBPACK_IMPORTED_MODULE_1__.currentProject.todos.filter(t => t.index != todo.index);
     _todoDomController__WEBPACK_IMPORTED_MODULE_0__["default"].removeTodo(todo);
+    (0,_project__WEBPACK_IMPORTED_MODULE_1__.reloadLocalStorage)();
 }
 
 
@@ -3789,9 +3823,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 /* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo */ "./src/todo.js");
 /* harmony import */ var _eventController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventController */ "./src/eventController.js");
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project */ "./src/project.js");
+
 
 
 
@@ -3873,7 +3909,7 @@ const todoDom = (() => {
     function displayTodo(todo) {
         let completedClass = todo.completed ? 'completed-todo' : '';
         let precheckCheckbox = todo.completed ? 'checked' : '';
-        let formatedDueDate = todo.dueDate ?  '⏳ ' + (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(todo.dueDate), `dd/MM/yyyy p`) : '';
+        let formatedDueDate = todo.dueDate ?  '⏳ ' + (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(todo.dueDate), `dd/MM/yyyy p`) : '';
         todosDiv.innerHTML += `
             <div class="todo ${completedClass}" data-todo-index="${todo.index}" data-todo-form-action="update">
                 <input type="checkbox" class="todo-checkbox" ${precheckCheckbox}>
@@ -3884,7 +3920,7 @@ const todoDom = (() => {
                 </div>
                 <a class="delete-todo">🗑️</a>
             </div>
-            <div class="todo-divider"></div>
+            <div class="todo-divider" data-todo-divider-index="${todo.index}"></div>
         `;
     }
 
@@ -3902,7 +3938,7 @@ const todoDom = (() => {
 
     function reloadTodoDiv(todo) {
         let todoInfoDiv = findTodoInfoDiv(todo);
-        let formatedDueDate = todo.dueDate ?  '⏳ ' + (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(todo.dueDate), `dd/MM/yyyy p`) : '';
+        let formatedDueDate = todo.dueDate ?  '⏳ ' + (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(todo.dueDate), `dd/MM/yyyy p`) : '';
         todoInfoDiv.innerHTML = `
             <p class="todo-title">${todo.title}</p>
             <p class="todo-dueDate">${formatedDueDate}</p>
@@ -3917,8 +3953,10 @@ const todoDom = (() => {
     }
 
     function removeTodo(todo) {
-        let todoDiv = document.querySelector(`[data-todo-index="${todo.index}"]`);
+        let todoDiv = document.querySelector(`.todo[data-todo-index="${todo.index}"]`);
+        let todoDivDivider = document.querySelector(`.todo-divider[data-todo-divider-index="${todo.index}"]`);
         todosDiv.removeChild(todoDiv);
+        todosDiv.removeChild(todoDivDivider);
         closeTodoForm();
         (0,_eventController__WEBPACK_IMPORTED_MODULE_1__.updateTodoButtons)();
     }
@@ -3927,10 +3965,11 @@ const todoDom = (() => {
         let todo = (0,_todo__WEBPACK_IMPORTED_MODULE_0__.findTodo)(this);
         this.parentNode.classList.toggle('completed-todo');
         todo.completed = !todo.completed;
+        (0,_project__WEBPACK_IMPORTED_MODULE_2__.reloadLocalStorage)();
         closeTodoForm();
     }
 
-    return { showTodoButton, hideTodoButton, fillTodoForm, openTodoForm, closeTodoForm, getFormValues,changePriorityStyle, displayTodo, reloadTodoDiv, clearTodos, removeTodo, toggleTodoCompletion }
+    return { showTodoButton, hideTodoButton, fillTodoForm, openTodoForm, closeTodoForm, getFormValues, changePriorityStyle, displayTodo, reloadTodoDiv, clearTodos, removeTodo, toggleTodoCompletion }
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (todoDom);
