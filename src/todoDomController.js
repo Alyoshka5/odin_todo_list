@@ -1,6 +1,7 @@
 import { compareAsc, format } from 'date-fns'
 import { todoFormAction, changeTodoFormAction, manageEditTodoForm, findTodo } from "./todo";
 import { updateTodoButtons } from "./eventController";
+import { reloadLocalStorage } from './project';
 
 const projectTitle = document.querySelector('.project-title');
 const todosDiv = document.querySelector('.todos');
@@ -90,7 +91,7 @@ const todoDom = (() => {
                 </div>
                 <a class="delete-todo">🗑️</a>
             </div>
-            <div class="todo-divider"></div>
+            <div class="todo-divider" data-todo-divider-index="${todo.index}"></div>
         `;
     }
 
@@ -123,8 +124,10 @@ const todoDom = (() => {
     }
 
     function removeTodo(todo) {
-        let todoDiv = document.querySelector(`[data-todo-index="${todo.index}"]`);
+        let todoDiv = document.querySelector(`.todo[data-todo-index="${todo.index}"]`);
+        let todoDivDivider = document.querySelector(`.todo-divider[data-todo-divider-index="${todo.index}"]`);
         todosDiv.removeChild(todoDiv);
+        todosDiv.removeChild(todoDivDivider);
         closeTodoForm();
         updateTodoButtons();
     }
@@ -133,10 +136,11 @@ const todoDom = (() => {
         let todo = findTodo(this);
         this.parentNode.classList.toggle('completed-todo');
         todo.completed = !todo.completed;
+        reloadLocalStorage();
         closeTodoForm();
     }
 
-    return { showTodoButton, hideTodoButton, fillTodoForm, openTodoForm, closeTodoForm, getFormValues,changePriorityStyle, displayTodo, reloadTodoDiv, clearTodos, removeTodo, toggleTodoCompletion }
+    return { showTodoButton, hideTodoButton, fillTodoForm, openTodoForm, closeTodoForm, getFormValues, changePriorityStyle, displayTodo, reloadTodoDiv, clearTodos, removeTodo, toggleTodoCompletion }
 })();
 
 export default todoDom;

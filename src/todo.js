@@ -1,5 +1,5 @@
 import todoDom from './todoDomController';
-import { currentProject } from "./project";
+import { currentProject, reloadLocalStorage } from "./project";
 import { updateTodoButtons } from './eventController';
 
 const todoFactory = (title, description, dueDate, priority, index) => {
@@ -36,6 +36,7 @@ function createTodo() {
     currentProject.todoIndex += 1;
     let newTodo = todoFactory(title, description, duedate, priority, index);
     currentProject.todos.push(newTodo);
+    reloadLocalStorage();
     todoDom.displayTodo(newTodo);
     updateTodoButtons();
     todoDom.closeTodoForm();
@@ -45,6 +46,7 @@ function updateTodo() {
     [editedTodo.title, editedTodo.description, editedTodo.dueDate, editedTodo.priority] = todoDom.getFormValues();
     todoDom.closeTodoForm();
     todoDom.reloadTodoDiv(editedTodo);
+    reloadLocalStorage();
 }
 
 function addDefaultTodo() {
@@ -67,6 +69,7 @@ function deleteTodo() {
     let todo = findTodo(this);
     currentProject.todos = currentProject.todos.filter(t => t.index != todo.index);
     todoDom.removeTodo(todo);
+    reloadLocalStorage();
 }
 
 export { todoFormAction, changeTodoFormAction, manageEditTodoForm, manageTodoForm, updateTodo, addDefaultTodo, findTodo, deleteTodo };

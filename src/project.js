@@ -16,33 +16,39 @@ let projects = [];
 let projectIndex = 0;
 let currentProject;
 
+function reloadLocalStorage() {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
+
 function createProject(e) {
     e.preventDefault();
     let project = projectFactory(projectFormInput.value, projectIndex);
     projects.push(project);
     projectIndex += 1;
+    localStorage.setItem('projectIndex', JSON.stringify(projectIndex));
     let currentProjectDiv = document.querySelector(`.project-div[data-project-index="${currentProject.index}"`);
     currentProjectDiv.classList.remove('current-project');
     currentProject = project;
     projectDom.closeProjectForm();
     projectDom.addProject(project);
+    reloadLocalStorage();
     projectDom.loadProject(project);
     updateProjectButtons();
     todoDom.closeTodoForm();
-    let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
-    projectDiv.classList.add('current-project');
+    projectDom.setCurrentProjectStyling(project);
 }
 
 function createDefaultProject() {
     let project = projectFactory("Welcome", projectIndex);
     projects.push(project);
     projectIndex += 1;
+    localStorage.setItem('projectIndex', JSON.stringify(projectIndex));
     currentProject = project;
     projectDom.addProject(project);
-    let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
-    projectDiv.classList.add('current-project');
+    projectDom.setCurrentProjectStyling(project);
     updateProjectButtons();
     addDefaultTodo();
+    reloadLocalStorage();
 }
 
 function findProject(projectButton) {
@@ -55,17 +61,30 @@ function deleteProject() {
     let project = findProject(this);
     projects = projects.filter(p => p.index != project.index);
     projectDom.removeProject(project);
+    reloadLocalStorage();
 }
 
 function resetCurrentProject() {
     if (projects.length > 0) {
         currentProject = projects[0];
         projectDom.loadProject(currentProject);
+        projectDom.setCurrentProjectStyling(currentProject);
     } else {
         todoDom.clearTodos();
     }
 }
 
-window.onload = createDefaultProject;
+function manageProjectLoading() {
+    if (localStorage.getItem('projects')) {
+        projects = JSON.parse(localStorage.getItem('projects'));
+        projectIndex = parseInt(localStorage.getItem('projectIndex'));
+        projectDom.addStoredProjects(projects);
+        resetCurrentProject();
+    } else {
+        createDefaultProject();
+    }
+}
 
-export { currentProject, createProject, findProject, deleteProject, resetCurrentProject }
+window.onload = manageProjectLoading;
+
+export { currentProject, reloadLocalStorage, createProject, findProject, deleteProject, resetCurrentProject }

@@ -35,6 +35,17 @@ const projectDom = (() => {
         `;
     }
 
+    function addStoredProjects(projects) {
+        projects.forEach(project => addProject(project));
+        updateProjectButtons();
+        updateTodoButtons();
+    }
+
+    function setCurrentProjectStyling(project) {
+        let projectDiv = document.querySelector(`.project-div[data-project-index="${project.index}"`);
+        projectDiv.classList.add('current-project');
+    }
+
     function setCurrentProject(projectButton) {
         let currentProjectDiv = document.querySelector(`.project-div[data-project-index="${currentProject.index}"`);
         currentProjectDiv.classList.remove('current-project');
@@ -66,7 +77,7 @@ const projectDom = (() => {
         updateProjectButtons();
     }
     
-    return { openProjectForm, closeProjectForm, addProject, displayProject, setCurrentProject, loadProject, removeProject } 
+    return { openProjectForm, closeProjectForm, addProject, addStoredProjects, displayProject, setCurrentProjectStyling, setCurrentProject, loadProject, removeProject } 
 })();
 
 export default projectDom;
